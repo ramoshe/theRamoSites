@@ -69,31 +69,27 @@ const { title, description } = Astro.props;
 		--black: #1F1D1D;
 		--white: #F7F7F7;
 		--gray-mid: #7A7471;
+		--primary:#268184;
+		--primary-contrast: var(--primary);
+		--secondary: #ab6336;
+		--secondary-contrast: var(--secondary);
+		--accent: #d7a03a;
 
 		--font-primary: 'Nunito', sans-serif;
 		--font-display: 'Permanent Marker', sans-serif;
 
-		--primary:#5da1a3;
-		--secondary: #c08a69;
-		--accent: #e1b86c;
-		--gray: #DEDDDC;
+		--gray: #EBEAEA;
 		--gray-contrast: #2E2C2B;
-		--primary-contrast: #268184;
-		--secondary-contrast: #ab6336;
-		--accent-contrast: #d7a03a;
+		--accent-contrast: #E1B86C;
 
 		--background-color: var(--black);
 		--text-color: var(--white);
 	}
 	[data-theme="light"]:root {
-		--primary: #268184;
-		--secondary: #ab6336;
-		--accent: #d7a03a;
 		--gray: #2E2C2B;
-		--gray-contrast: #DEDDDC;
-		--primary-contrast:#5da1a3;
-		--secondary-contrast: #c08a69;
-		--accent-contrast: #e1b86c;
+		--gray-contrast: #EBEAEA;
+		--primary-contrast: #5da1a3;
+		--accent-contrast: #6C501D;
 
 		--background-color: var(--white);
 		--text-color: var(--black);
@@ -145,7 +141,7 @@ const { title, description } = Astro.props;
 		width: auto;
 		margin-right: .5em;
 	}
-	.btn-primary { background-color: var(--accent-contrast); }
+	.btn-primary { background-color: var(--accent); color: var(--black); }
 	.btn-primary:hover { background-color: var(--secondary-contrast); }
 	.btn-secondary { border: 1px solid var(--text-color); }
 	.btn-secondary:hover { background-color: var(--accent-contrast); }
