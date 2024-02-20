@@ -1,0 +1,137 @@
+---
+import { Icon } from 'astro-icon';
+---
+<div id="problem" class="section">
+    <h3 class="section-heading">
+        The Problem
+    </h3>
+    <h2 class="section-title">
+        Quick and Easy comes with Sacrifices
+    </h2>
+    <p class="section-intro">
+        Platforms that make it easy to get your brand online also limit your ability to truly let your brand shine and fit the needs of your business.
+    </p>
+    <div class="section-content">
+        <ul class="content-list">
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:border-outer" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        Limited Customization
+                    </h4>
+                    <p class="item-text-content">
+                        These platforms all have limitations in terms of functionality and features. If you want to fully cistomize your branding or have complex business needs, site builders will usually not be sufficiently flexible or offer the features you need.
+                    </p>
+                </div>
+            </li>
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:chart-line" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        High Learning Curves
+                    </h4>
+                    <p class="item-text-content">
+                        Adding any kind of customization often requires digging through settings and changing templates in ways that require deep knowledge about the platform which takes time to gain, and depends on availibility of learning resources.
+                    </p>
+                </div>
+            </li>
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:search" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        SEO Challenges
+                    </h4>
+                    <p class="item-text-content">
+                        Search engine optimization (SEO) is essential for improving your website's visibility in search engine results, which is a huge way customers find you. Most site builders limit your ability to fully optimize your website.
+                    </p>
+                </div>
+            </li>
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:businessplan" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        Expensive Ongoing Fees
+                    </h4>
+                    <p class="item-text-content">
+                        Despite often having low entry costs, there are often limitations in free or basic plans, with access to more advanced features requiring you to upgrade to an expensive paid subscription, which really adds up over time.
+                    </p>
+                </div>
+            </li>
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:apps" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        Overcrowding & Competition
+                    </h4>
+                    <p class="item-text-content">
+                        Being on a platform that has its own traffic can be an advantage, but it also often puts your business and brand in direct competition with other brands and product that are simmilar to yours, effectively pulling customers away.
+                    </p>
+                </div>
+            </li>
+            <li class="content-item">
+                <div class="item-icon"><Icon name="tabler:cloud-lock" /></div>
+                <div class="item-text">
+                    <h4 class="item-text-title">
+                        Platform Dependancy
+                    </h4>
+                    <p class="item-text-content">
+                        Being tied to a specific platform means that if terms change or you decide to switch you'll have to go through the time-consuming and challenging process of migrating your content and potentially reconfiguring your entire website.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    #problem {
+        margin-bottom: 4em;
+    }
+    .section-intro {
+        width: 80%;
+        text-align: center;
+        margin: 1em auto 2em;
+    }
+    .content-list {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6%;
+    }
+    .content-item {
+        list-style-type: none;
+        width: 47%;
+        display: flex;
+        margin-bottom: 2em;
+    }
+    .item-icon {
+        background-color: var(--primary-contrast);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    .item-icon svg {
+        height: 30px;
+        width: auto;
+    }
+    .item-text {
+        flex-shrink: 100;
+        margin-left: 1em;
+    }
+    .item-text-title {
+        margin-bottom: .4em;
+    }
+    .item-text-content {
+        font-size: .9em;
+        color: var(--gray);
+    }
+
+    @media (max-width: 800px) {
+        .content-item {
+            width: 100%;
+        }
+    }
+</style>

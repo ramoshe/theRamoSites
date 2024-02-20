@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon";
+
+import { Image } from "astro:assets";
+import videoPlaceholder from "../../assets/videoPlaceholder.png";
+---
+<div id="hero" class="section">
+    <h1 class="hero-title">
+        Elevate your Online Brand with a <span class="title-highlight">Custom Built</span> website
+    </h1>
+    <p class="hero-text">
+        Site builders, link pages, and other platforms offer a quick and easy way to get started, but to take things to the next level you need a custom built website that highlights the full uniqueness your brand and fits your specific business needs.
+    </p>
+    <div class="hero-buttons">
+        <a href="/start" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Get Started</a>
+        <a href="#steps" class="btn btn-secondary">How It Works</a>
+    </div>
+    <div class="hero-video">
+        <!-- <iframe class="youtube-video" src="https://www.youtube.com/embed/_PEv9VeWtmY?si=OmcPSq0skTWSe_uR&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        <Image src={videoPlaceholder} alt="video placeholder" class="placeholder" />
+    </div>
+</div>
+
+<style>
+    .placeholder {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<style>
+    #hero {
+        margin-top: 4em;
+    }
+    .hero-title {
+        font-size: 3em;
+        font-family: var(--font-display);
+        text-align: center;
+        line-height: 1em;
+    }
+    .title-highlight {
+        color: var(--primary);
+    }
+    .hero-text {
+        width: 80%;
+        color: var(--gray);
+        text-align: center;
+        margin: 1em auto;
+    }
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+    }
+    .hero-video {
+        margin: 4em auto;
+    }
+    .youtube-video {
+        aspect-ratio: 16 / 7;
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        .hero-buttons {
+            flex-wrap: wrap;
+        }
+        .hero-buttons .btn {
+            width: 80%;
+        }
+    }
+</style>

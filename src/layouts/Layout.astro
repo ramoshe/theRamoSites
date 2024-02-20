@@ -1,0 +1,170 @@
+---
+import { SEO } from "astro-seo";
+import Resets from '@julian_cataldo/astro-resets/Resets.astro';
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+
+		<SEO
+			title="Myte by theRamoShe"
+			description={description ? description : "Baltimore based Content Creator, Web Designer and Developer, Wood Burning Artist, Live Streamer, and all around nice person."}
+			openGraph={{
+				basic: {
+				title: "Myte by theRamoShe",
+				type: "website",
+				image: "https://myte.site/ogimg.png",
+				}
+			}}
+		/>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<Resets
+			removeAllMargins={true}
+			fontSmoothing={true}
+			fontSystem={true}
+			scrollSmooth={true}
+			borderBox={true}
+			scrollBarKeep={true}
+		/>
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--black: #1F1D1D;
+		--white: #F7F7F7;
+		--gray-mid: #7A7471;
+
+		--font-primary: 'Nunito', sans-serif;
+		--font-display: 'Permanent Marker', sans-serif;
+
+		--primary:#5da1a3;
+		--secondary: #c08a69;
+		--accent: #e1b86c;
+		--gray: #DEDDDC;
+		--gray-contrast: #2E2C2B;
+		--primary-contrast: #268184;
+		--secondary-contrast: #ab6336;
+		--accent-contrast: #d7a03a;
+
+		--background-color: var(--black);
+		--text-color: var(--white);
+	}
+	[data-theme="light"]:root {
+		--primary: #268184;
+		--secondary: #ab6336;
+		--accent: #d7a03a;
+		--gray: #2E2C2B;
+		--gray-contrast: #DEDDDC;
+		--primary-contrast:#5da1a3;
+		--secondary-contrast: #c08a69;
+		--accent-contrast: #e1b86c;
+
+		--background-color: var(--white);
+		--text-color: var(--black);
+	}
+	/* * { border: 1px solid blue } */
+	html {
+		font-size: 20px;
+		color: var(--text-color);
+		background-color: var(--background-color);
+	}
+	body {
+		font-family: var(--font-primary);
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		/* overflow-x: hidden; */
+		font-display: optional;
+	}
+	main {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1200px;
+		padding: 0 50px;
+	}
+	@media (max-width: 1000px) {
+		html {
+			font-size: 18px;
+		}
+		main {
+			padding: 0 20px;
+		}
+	}
+
+	.btn {
+		margin: 1em;
+		padding: .7em 2em;
+		border-radius: 50px;
+		text-decoration: none;
+		color: var(--text-color);
+		font-size: .9em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.btn svg {
+		height: 1.5em;
+		width: auto;
+		margin-right: .5em;
+	}
+	.btn-primary { background-color: var(--accent-contrast); }
+	.btn-primary:hover { background-color: var(--secondary-contrast); }
+	.btn-secondary { border: 1px solid var(--text-color); }
+	.btn-secondary:hover { background-color: var(--accent-contrast); }
+
+	.policy-container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	.policy-title {
+		font-size: 3em;
+		font-family: var(--font-display);
+		margin: 1em 0 0;
+	}
+	.termageddon h3 {
+		margin-top: 1em;
+	}
+	.termageddon p, .termageddon ul {
+		font-size: .9em;
+		color: var(--gray);
+		margin-bottom: 1em;
+	}
+</style>

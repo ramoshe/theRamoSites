@@ -1,0 +1,189 @@
+---
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+
+import Image1 from '../../assets/undraw_software_engineer_re_tnjc.svg';
+import Image2 from '../../assets/undraw_web_devices_re_m8sc.svg'
+---
+<div id="solution" class="section">
+    <h3 class="section-heading">
+        The Solution
+    </h3>
+    <h2 class="section-title">
+        A Custom Built Site lets your brand shine
+    </h2>
+    <div class="section-content">
+        <div class="section-content-text">
+            <p class="section-intro">
+                A custom-built website allows you to have complete control over the design, layout, colors, typography, and overall aesthetics, ensuring that your website establishes a strong presence.
+            </p>
+            <ul class="content-list">
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Fully customizable branding
+                        </h4>
+                        <p class="item-text-content">
+                            With a custom-built website, you have the freedom to customize every aspect of your site to meet your specific business goals and cater to your target audience.
+                        </p>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Enhanced functionality and integrations
+                        </h4>
+                        <p class="item-text-content">
+                            Whether you need advanced features, interactive elements, complex forms, or integration with third-party tools and services, a custom site can accommodate your requirements more seamlessly.
+                        </p>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Responsive and accessible design
+                        </h4>
+                        <p class="item-text-content">
+                            In today's era it's more important than ever that your website is accessible to all types of users on all types of devices.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="section-content-image">
+            <Image src={Image1} alt="" />
+        </div>
+    </div>
+    <div class="section-content">
+        <div class="section-content-image">
+            <Image src={Image2} alt="" />
+        </div>
+        <div class="section-content-text">
+            <ul class="content-list">
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Full custom website design
+                        </h4>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Hand tuned color palettes
+                        </h4>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Scalable for future growth and changes
+                        </h4>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Full data ownership and control
+                        </h4>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Search engine optimization included
+                        </h4>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon"><Icon name='tabler:arrow-right' /></div>
+                    <div class="item-text">
+                        <h4 class="item-text-title">
+                            Cost effective for the long term
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    #solution {
+        background-color: var(--gray-contrast);
+        box-shadow: 0 0 0 100vmax var(--gray-contrast);
+        clip-path: inset(0 -100vmax);
+        padding: 4em 0;
+    }
+    ul { padding: 0; }
+    li { list-style-type: none; }
+
+    .section-intro {
+        margin: 1em 0;
+    }
+    .section-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+    .section-content-image, .section-content-text {
+        width: 47%;
+        margin-bottom: 2em;
+    }
+    .section-content-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-item {
+        display: flex;
+        margin-bottom: 1em;
+    }
+    .item-icon {
+        width: 30px;
+        height: 30px;
+        background-color: var(--primary-contrast);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .item-icon svg {
+        width: 20px;
+        height: auto;
+    }
+    .item-text {
+        flex-shrink: 100;
+        margin-left: 1em;
+    }
+    .item-text-title {
+        margin-bottom: .4em;
+    }
+    .item-text-content {
+        color: var(--gray);
+        font-size: .9em;
+    }
+
+    @media (max-width: 800px) {
+        .section-content {
+            flex-wrap: wrap;
+        }
+        .section-content-image, .section-content-text {
+            width: 100%;
+        }
+        .section-content-image {
+            order: 2;
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+</style>

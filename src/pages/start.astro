@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import StartImage from '../assets/undraw_proud_coder_re_exuy.svg';
+---
+
+<Layout title="Get Started with Myte by theRamoShe">
+	<div id="start">
+        <div class="content-text">
+            <h2 class="content-title">So you wanna <span class="title-highlight">Get Started</span> with your Custom Site today?</h2>
+            <p class="content-instructions">Fill out the form below with a little info about yourself and your business so that we can get this train rolling.</p>
+        </div>
+        <div class="content-image">
+            <Image src={StartImage} alt="" />
+        </div>
+        <div class="content-form">
+            <script is:inline type="text/javascript" src="//mautic.ramoshe.com/form/generate.js?id=4"></script>
+        </div>
+    </div>
+</Layout>
+<style>
+    #start {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 7em 0;
+    }
+    .content-text {
+        width: 47%;
+    }
+    .content-image {
+        width: 47%;
+    }
+    .content-image img {
+        width: 100%;
+    }
+    .content-title {
+        font-family: var(--font-display);
+        font-size: 3em;
+        line-height: 1em;
+    }
+    .title-highlight {
+        color: var(--primary);
+    }
+    .content-instructions {
+        margin: 2em 0;
+    }
+    .content-form {
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 800px) {
+        .content-text, .content-image {
+            width: 100%;
+        }
+        .content-image {
+            order: 3
+        }
+    }
+</style>
+<style is:inline>
+    .content-form label {
+        display: block;
+        font-weight: bold;
+        font-size: .9em;
+    }
+    .content-form input, .content-form textarea {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        padding: .5em;
+        margin-bottom: 1.5em;
+    }
+    .content-form .half {
+        width: 47%;
+        float: left;
+    }
+    .content-form .half:first-of-type {
+        margin-right: 6%;
+    }
+    .content-form button {
+        border: none;
+        margin: 0 auto;
+    }
+</style>

@@ -1,0 +1,140 @@
+---
+import { Icon } from "astro-icon";
+---
+<div id="questions" class="section">
+    <h3 class="section-heading">
+        The Answers
+    </h3>
+    <h2 class="section-title">
+        Frequently Asked Questions
+    </h2>
+    <p class="section-intro">
+        At this point, a swirl of excitement and questions is spinning in your mind. Lets see if we can sort a few of those our for ya here.
+    </p>
+    <div class="section-content">
+        <div class="section-column">
+            <ul class="content-list">
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            Who is theRamoShe? Why is she the best?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        Rachel M. Sherard has a educational background in Media Production, Marketing Communications, Visual Art, and User Experience Design. With the power of these skills and a healthy dash of OCD, she will make sure that the job is done right.
+                    </p>
+                </li>
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            What types of features can my website have?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        Examples include: links to/embeds of social media, personal blog, photo or video gallery, custom forms, payment widgets, and anything you can dream of that is possible with code.
+                    </p>
+                </li>
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            How can I use the work I've already done?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        There are many ways that you might be able to integrate other platforms or transfer content from your existing site to your new one. We'll be sure to go over all of this in your initial consult.
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="section-column">
+            <ul class="content-list">
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            How much will all of this cost?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        Check out the <a href="/Myte_Services_Pricing.pdf" target="_blank">Myte Services & Pricing</a> (PDF Document - opens in a new tab) for all the details you desire about the services that Myte and theRamoShe provides.
+                    </p>
+                </li>
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            Will I be able to make edits and updates?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        Absolutely! Your website build includes a customized backend for your site where you'll be able to edit whichever content bits you desire. And if you ever need design changes or deeper edits to your site, you can count on Myte to be there for you!
+                    </p>
+                </li>
+                <li class="content-item">
+                    <div class="item-icontitle">
+                        <Icon class="item-icon" name="tabler:arrow-down-right" />
+                        <h4 class="item-title">
+                            How do I get started with my custom site?
+                        </h4>
+                    </div>
+                    <p class="item-text">
+                        The first step is <a href="/contact">filling out the form at this link</a> to let me know a little bit about what you're looking for. After the form you'll also <a href="/thankyou">get a few steps that you can complete</a> to prepare for the consult meeting where we'll get the process started.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    ul { padding: 0; }
+    li { list-style-type: none; }
+    #questions {
+        margin: 4em 0;
+    }
+    .section-intro {
+        width: 80%;
+        text-align: center;
+        margin: 1em auto 2em;
+    }
+    .section-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .section-column {
+        width: 47%;
+    }
+    .content-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .content-item {
+        margin-bottom: 2em;
+    }
+    .item-icontitle {
+        display: flex;
+    }
+    .item-icon {
+        width: 30px;
+        height: auto;
+        color: var(--primary-contrast);
+        margin-right: .5em;
+    }
+    .item-title {
+        flex-shrink: 100;
+    }
+    .item-text {
+        color: var(--gray);
+        font-size: .9em;
+        margin-top: .5em;
+    }
+    .item-text a {
+        color: var(--accent);
+    }
+</style>

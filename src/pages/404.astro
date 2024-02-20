@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+import ErrorImage from '../assets/undraw_page_not_found_re_e9o6.svg';
+---
+
+<Layout title="Myte by theRamoShe">
+	<div id="container">
+        <div class="image">
+            <Image src={ErrorImage} alt="" />
+        </div>
+        <h2 class="title">
+            Sorry, we couldn't find this page.
+        </h2>
+        <div class="content">
+            <p class="text">
+                  But dont worry, you can find plenty of other things on the homepage.
+            </p>
+            <a href="/" class="button btn btn-primary"><Icon name="tabler:arrow-big-left-lines" />Back to homepage</a>
+        </div>
+    </div>
+</Layout>
+<style>
+    #container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .image {
+        height: 30vh;
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .image img {
+        height: 100%;
+        width: auto;
+    }
+    .title {
+        font-family: var(--font-display);
+        font-size: 3em;
+        line-height: 1em;
+        text-align: center;
+        margin: 1em 0;
+    }
+    .text {
+        text-align: center;
+        margin: 1em 0 2em;
+    }
+    .button {
+        width: fit-content;
+        margin: 0 auto;
+    }
+</style>

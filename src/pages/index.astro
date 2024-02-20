@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Problem from '../components/sections/Problem.astro';
+import Solution from '../components/sections/Solution.astro';
+import Steps from '../components/sections/Steps.astro';
+import Clients from '../components/sections/Clients.astro';
+import Questions from '../components/sections/Questions.astro';
+import Action from '../components/sections/Action.astro';
+---
+
+<Layout title="theRamoSites">
+	<Hero />
+	<Problem />
+	<Solution />
+	<Steps />
+	<Clients />
+	<Questions />
+	<Action />
+</Layout>
+
+<style is:global>
+	.section-heading {
+		text-transform: uppercase;
+		text-align: center;
+		color: var(--secondary);
+		font-size: .9em;
+		letter-spacing: .05em;
+	}
+	.section-title {
+		font-family: var(--font-display);
+		font-size: 2.5em;
+		text-align: center;
+		line-height: 1em;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	.section-intro {
+		color: var(--gray);
+	}
+</style>

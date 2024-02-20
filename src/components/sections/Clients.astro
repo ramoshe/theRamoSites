@@ -1,0 +1,103 @@
+---
+import { Icon } from "astro-icon";
+---
+<div id="clients" class="section">
+    <h3 class="section-heading">
+        The Proof
+    </h3>
+    <h2 class="section-title">
+        Satisfied Clients
+    </h2>
+    <p class="section-intro">
+        Check out some of the sites I've built for others—see my work and dream of your future!
+    </p>
+    <div class="section-cards">
+        <div class="client-card">
+            <Icon class="client-logo" name="AmyElephant" />
+            <h4 class="client-name">AmyBabyZ</h4>
+            <p class="client-text">
+                Amy is a live streamer on Kick and Trovo. Her hand coded site links out to all her socials (even the spicy ones that are limited on other platforms) and contains a bio and shoutouts to her sponsors and streaming friends. <a href="https://amybabyz.com" target="_blank">Check it out.</a>
+            </p>
+        </div>
+        <div class="client-card">
+            <Icon class="client-logo" name="LaurenTorres" />
+            <h4 class="client-name">LaurenTorresMusic</h4>
+            <p class="client-text">
+                Lauren is a Los Angeles based songwriter and musician. Her hand coded site shows off her music videos on YouTube, highlights information about upcoming shows and other news updates, and links to all her platforms. <a href="https://laurentorresmusic.com" target="_blank">Check it out.</a>
+            </p>
+        </div>
+        <div class="client-card">
+            <Icon class="client-logo" name="TroviansLogo" />
+            <h4 class="client-name">Trovians</h4>
+            <p class="client-text">
+                The Trovians are a streaming team that started on Trovo. Their WordPress site is a merch shop with designs by theRamoShe and also features profiles for all members of the team complete with all their social links and merch. <a href="https://trovians.com" target="_blank">Check it out.</a>
+            </p>
+        </div>
+        <div class="client-card">
+            <Icon class="client-logo" name="sherardFamily" />
+            <h4 class="client-name">Sherard Family</h4>
+            <p class="client-text">
+                The Sherard Family hosts biennial Reunion events, and uses their site to take event registrations and donations. They also have a merch shop with designs by theRamoShe for sale to family. <a href="https://sherardfamily.com" target="_blank">Check it out.</a>
+            </p>
+        </div>
+        <div class="client-card">
+            <Icon class="client-logo" name="ramosheLogo" />
+            <h4 class="client-name">theRamoShe</h4>
+            <p class="client-text">
+                Is it cheating to count my own site? It's a hand coded site that features social links, links to shops, a gallery of wood burned artwork, and a portfolio of web design and development work. <a href="https://theramoshe.com" target="_blank">Check it out.</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    #clients {
+        background-color: var(--gray-contrast);
+        box-shadow: 0 0 0 100vmax var(--gray-contrast);
+        clip-path: inset(0 -100vmax);
+        padding: 4em 0;
+    }
+    .section-intro {
+        width: 80%;
+        text-align: center;
+        margin: 1em auto 2em;
+    }
+
+    .section-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5em;
+        align-items: stretch;
+    }
+    .client-card {
+        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: var(--background-color);
+        padding: 1em 1.2em;
+        border: 1px solid var(--gray-contrast);
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+    }
+    .client-logo {
+        height: 30px;
+        width: auto;
+        margin-right: 1em;
+    }
+    .client-text {
+        font-size: .8em;
+        color: var(--gray);
+        margin-top: 1em;
+    }
+    .client-text a {
+        color: var(--accent);
+        white-space: nowrap;
+    }
+
+    @media (max-width: 800px) {
+        .client-card {
+            min-width: 80%;
+        }
+    }
+</style>

@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon";
+---
+<div id="action" class="section">
+    <div class="section-container">
+        <h2 class="section-title">
+            More Deets!
+        </h2>
+        <p class="section-content">
+            Want more details about Myte's services and their pricing? <br />Click below to see a PDF with all the details!
+        </p>
+        <a href="/Myte_Services_Pricing.pdf" target="_blank" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />View Details</a>
+    </div>
+</div>
+
+<style>
+    .btn { width: fit-content; }
+
+    #action {
+        margin: 7em 0;
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--gray-mid);
+        border-radius: 20px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 2em 3em;
+    }
+    .section-content {
+        margin: 1em 0;
+        text-align: center;
+    }
+    @media (max-width: 800px) {
+        .section-container {
+            padding: 2em;
+        }
+        .section-content br {
+            display: none;
+        }
+    }
+</style>

@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+import ThanksImage from '../assets/undraw_nature_on_screen_xkli.svg';
+---
+
+<Layout title="Get Started with Myte by theRamoShe">
+	<div id="thanks">
+        <div class="content-text">
+            <h2 class="content-title">
+                <span class="title-highlight">Thank You</span> and Congratulations!
+            </h2>
+            <p class="content-instructions">
+                You've just taken the first step toward making your website dreams come true! theRamoShe will be in touch very shortly to schedule your inital consult appontment! In the meantime, scroll down to take a look at some next steps you can take to prepare.
+            </p>
+            <div class="thanks-buttons">
+                <a href="#next" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Next Steps</a>
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+        <div class="content-image">
+            <Image src={ThanksImage} alt="" />
+        </div>
+    </div>
+    <div id="next">
+        <div class="next-intro">
+            <h3 class="next-intro-title">
+                Get ready for your website build
+            </h3>
+            <p class="next-intro-text">
+                There are a few steps you can take now to get things ready for this process. Starting by thinking through the foundational aspects of your business and brand identity is integral to the success of your final website product.
+            </p>
+        </div>
+        <div class="next-content">
+            <ul class="content-list">
+                <li class="content-item">
+                    <div class="item-icon">1</div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            URL/Domain Name
+                        </h4>
+                        <p class="item-content-text">
+                            If you haven't already purchased one, think about what you might want to be your website address. Short and memorable is best!
+                        </p>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon">2</div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            Brand Identity
+                        </h4>
+                        <p class="item-content-text">
+                            It's time to think deeply about your branding and how you want to present your business. Choose a few adjectives that represent your identity. Selecting colors and design inspiration is a bonus! Search the web for "mood boards" to get some ideas.
+                        </p>
+                    </div>
+                </li>
+                <li class="content-item">
+                    <div class="item-icon">3</div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            Business Plan
+                        </h4>
+                        <p class="item-content-text">
+                            Do you actually have one written down? Even an informal plan will guide you through thinking about all the important aspects of how your business operates. Search the web for "Business Model Canvas" for a relatively simple template that will get you started.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="more">
+        <div class="more-container">
+            <h2 class="more-title">
+                Learn more about theRamoShe
+            </h2>
+            <p class="more-content">
+                Rachel is a designer, developer, streamer, and wood burning artist. <br />Check out her links and works on her website!
+            </p>
+            <a href="https://theramoshe.com" target="_blank" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Go To theRamoShe.com</a>
+        </div>
+    </div>
+</Layout>
+<style>
+    ul { padding: 0; }
+    li { list-style-type: none; }
+    #thanks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .content-text {
+        width: 47%;
+    }
+    .content-image {
+        width: 47%;
+    }
+    .content-image img {
+        width: 100%;
+    }
+    .content-title {
+        font-family: var(--font-display);
+        font-size: 2.5em;
+        line-height: 1em;
+    }
+    .title-highlight {
+        color: var(--primary);
+    }
+    .content-instructions {
+        margin: 2em 0;
+    }
+    .thanks-buttons {
+        display: flex;
+    }
+
+    #next {
+        background-color: var(--gray-contrast);
+        box-shadow: 0 0 0 100vmax var(--gray-contrast);
+        clip-path: inset(0 -100vmax);
+        padding: 4em 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .next-intro, .next-content {
+        width: 47%
+    }
+    .next-intro-title {
+        font-family: var(--font-display);
+        font-size: 2em;
+        line-height: 1em;
+    }
+    .next-intro-text {
+        color: var(--gray);
+        margin: 2em 0;
+    }
+    .content-item {
+        display: flex;
+        margin-bottom: 1em;
+    }
+    .item-icon {
+        font-weight: 800;
+        line-height: 1em;
+        color: var(--primary-contrast);
+        background-color: var(--text-color);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .item-content {
+        flex-shrink: 100;
+        margin-left: 1em;
+    }
+    .item-content-text {
+        color: var(--gray);
+        font-size: .9em;
+    }
+
+    #more {
+        margin: 7em 0;
+    }
+    .more-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--gray-mid);
+        border-radius: 20px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 2em 3em;
+    }
+    .more-title {
+        font-family: var(--font-display);
+        font-size: 2em;
+    }
+    .more-content {
+        margin: 1em 0;
+        text-align: center;
+    }
+
+    @media (max-width: 800px) {
+        .content-text, .content-image {
+            width: 100%;
+        }
+        .more-container {
+            padding: 2em;
+        }
+        .more-content br {
+            display: none;
+        }
+    }
+</style>
