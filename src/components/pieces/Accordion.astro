@@ -19,35 +19,46 @@ const { items } = Astro.props;
                 <Icon class="open" name="tabler:caret-up-filled" />
             </span>
         </div>
-        <p class="item-text" set:html={text}></p>
+        <div class="item-text">
+            <p set:html={text}></p>
+        </div>
     </accordion-item>
 )) }
 
 <style>
+    :root {
+        --expansion: .5s ease-out;
+    }
     .content-item {
         width: 100%;
-        margin-bottom: 2em;
+        margin-bottom: 2.5em;
+        display: flex;
+        flex-direction: column;
+        max-height: 100%;
     }
     .item-icontitle {
         display: flex;
         justify-content: space-between;
     }
     .item-icon {
+        display: flex;
         width: 30px;
-        height: auto;
         color: var(--accent-contrast);
-        margin-right: .5em;
     }
     .item-icon .open {
         display: none;
     }
-    .item-title {
-        flex-shrink: 100;
-    }
     .item-text {
-        display: none;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows var(--expansion), opacity var(--expansion), margin var(--expansion), padding var(--expansion), border var(--expansion);
+        opacity: 0;
         color: var(--gray);
         font-size: .9em;
+    }
+    .item-text.open {
+        grid-template-rows: 1fr;
+        opacity: 1;
         margin: 0 1.5em 0 .5em;
         padding: 1em 1.2em;
         padding-top: .7em;
@@ -56,9 +67,13 @@ const { items } = Astro.props;
         border-right: none;
         border-radius: 0px 0px 14px 14px;
     }
+    .item-text p {
+        overflow: hidden;
+    }
 </style>
 
 <script>
+
     class AccordionItem extends HTMLElement {
         isClosed: boolean = true;
         connectedCallback() {
@@ -67,16 +82,22 @@ const { items } = Astro.props;
             const openIcon: HTMLElement | null = this.querySelector('.open');
             const answer: HTMLElement | null = this.querySelector('.item-text');
             const allAnswers: NodeListOf<HTMLElement> = document.querySelectorAll('.item-text');
+            const allOpen: NodeListOf<HTMLElement> = document.querySelectorAll('.open');
+            const allClosed: NodeListOf<HTMLElement> = document.querySelectorAll('.closed');
 
             question!.addEventListener('click', () => {
                 if(this.isClosed) {
-                    allAnswers.forEach( oldAnswer => oldAnswer.style.display = "none" );
-                    answer!.style.display = "block";
+                    allAnswers.forEach( oldAnswer => oldAnswer.classList.remove("open") );
+                    allOpen.forEach( icon => icon.style.display = "none" );
+                    allClosed.forEach( icon => icon.style.display = "block" );
+                    answer!.classList.add("open");
+                    // answer!.style.maxHeight = `fit-content`;
                     closedIcon!.style.display = "none";
                     openIcon!.style.display = "block";
                     this.isClosed = false;
                 } else {
-                    answer!.style.display = "none";
+                    answer!.classList.remove("open");
+                    // answer!.style.maxHeight = '0';
                     closedIcon!.style.display = "block";
                     openIcon!.style.display = "none";
                     this.isClosed = true;
