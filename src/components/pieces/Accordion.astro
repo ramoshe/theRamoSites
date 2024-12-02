@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon";
+
+interface Item {
+    title: string;
+    text: string;
+}
+interface Props {
+    items: Array<Item>;
+}
+const { items } = Astro.props;
+---
+{ items.map(({ title, text }) => (
+    <accordion-item class="content-item">
+        <div class="item-icontitle">
+            <h4 class="item-title">{title}</h4>
+            <span class="item-icon">
+                <Icon class="closed" name="tabler:caret-down" />
+                <Icon class="open" name="tabler:caret-up-filled" />
+            </span>
+        </div>
+        <p class="item-text" set:html={text}></p>
+    </accordion-item>
+)) }
+
+<style>
+    .content-item {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    .item-icontitle {
+        display: flex;
+        justify-content: space-between;
+    }
+    .item-icon {
+        width: 30px;
+        height: auto;
+        color: var(--accent-contrast);
+        margin-right: .5em;
+    }
+    .item-icon .open {
+        display: none;
+    }
+    .item-title {
+        flex-shrink: 100;
+    }
+    .item-text {
+        display: none;
+        color: var(--gray);
+        font-size: .9em;
+        margin: 0 1.5em 0 .5em;
+        padding: 1em 1.2em;
+        padding-top: .7em;
+        border: 2px solid var(--primary-contrast);
+        border-top: none;
+        border-right: none;
+        border-radius: 0px 0px 14px 14px;
+    }
+</style>
+
+<script>
+    class AccordionItem extends HTMLElement {
+        isClosed: boolean = true;
+        connectedCallback() {
+            const question = this.querySelector('.item-icontitle');
+            const closedIcon: HTMLElement | null = this.querySelector('.closed');
+            const openIcon: HTMLElement | null = this.querySelector('.open');
+            const answer: HTMLElement | null = this.querySelector('.item-text');
+            const allAnswers: NodeListOf<HTMLElement> = document.querySelectorAll('.item-text');
+
+            question!.addEventListener('click', () => {
+                if(this.isClosed) {
+                    allAnswers.forEach( oldAnswer => oldAnswer.style.display = "none" );
+                    answer!.style.display = "block";
+                    closedIcon!.style.display = "none";
+                    openIcon!.style.display = "block";
+                    this.isClosed = false;
+                } else {
+                    answer!.style.display = "none";
+                    closedIcon!.style.display = "block";
+                    openIcon!.style.display = "none";
+                    this.isClosed = true;
+                }
+            });
+        }
+    }
+    customElements.define('accordion-item', AccordionItem);
+</script>

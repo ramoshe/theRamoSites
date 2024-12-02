@@ -9,4 +9,7 @@ export default defineConfig({
 		robotsTxt(),
 		sitemap(),
 	],
+	vite: {
+		logLevel: 'error', // Suppresses warnings
+	},
 });

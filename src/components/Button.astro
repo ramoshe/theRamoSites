@@ -25,6 +25,7 @@ const { type, link, icon, text, window } = Astro.props;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		transition: background-color var(--animationEffect), color var(--animationEffect);
 	}
 	.btn svg {
 		height: 1.5em;
@@ -36,7 +37,7 @@ const { type, link, icon, text, window } = Astro.props;
         color: var(--black);
     }
 	.btn-primary:hover {
-        background-color: var(--secondary-contrast);
+        background-color: var(--accent-contrast);
     }
 
 	.btn-secondary {

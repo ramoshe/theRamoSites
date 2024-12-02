@@ -1,6 +1,5 @@
 ---
-import { Icon } from "astro-icon";
-import Accordion from "../Accordion.astro";
+import Accordion from "../pieces/Accordion.astro";
 ---
 <section id="questions" class="section">
     <h3 class="section-heading">
@@ -9,12 +8,11 @@ import Accordion from "../Accordion.astro";
     <h2 class="section-title">
         Frequently Asked Questions
     </h2>
-    <p class="section-intro">
-        Got a swirl of excitement and questions spinning in your mind? Don't worry—this is where we fill in the gaps, clear up any confusion, and make sure you're ready to take the next step!
-    </p>
+    <p class="section-intro">Got a swirl of excitement and questions spinning in your mind? Don't worry—this is where we fill in the gaps, clear up any confusion, and make sure you're ready to take the next step!<span class="highlight">Click on any question to see the answer.</span></p>
+
     <div class="section-content">
         <div class="section-column">
-            <ul class="content-list">
+            <div class="content-accordion">
                 <Accordion items={[
                     {
                         title: `Who is theRamoShe? Why is she the best?`,
@@ -26,13 +24,13 @@ import Accordion from "../Accordion.astro";
                     },
                     {
                         title: `How can I use the work I've already done?`,
-                        text: `There are many ways that we might be able to integrate other platforms or transfer content from your existing site to your new one. We'll be sure to go over all of this in your initial consult`
+                        text: `There are many ways that we might be able to integrate other platforms or transfer content from your existing site to your new one. We'll be sure to go over all of this in your initial consult.`
                     },
                 ]} />
-            </ul>
+            </div>
         </div>
         <div class="section-column">
-            <ul class="content-list">
+            <div class="content-accordion">
                 <Accordion items={[
                     {
                         title: `How much will all of this cost?`,
@@ -47,20 +45,25 @@ import Accordion from "../Accordion.astro";
                         text: `The first step is <a href="/start">filling out the Get Started form</a> to let me know a little bit about what you're looking for. After you submit the form you'll get a link to schedule our inital consult meeting along with a few other steps you can take to prepare. A contract will be drawn up after our inital meeting and our journey to your dreams will proceed!`
                     },
                 ]} />
-            </ul>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-    ul { padding: 0; }
     #questions {
         margin: 4em 0;
     }
     .section-intro {
         width: 80%;
         text-align: center;
-        margin: 1em auto 2em;
+        margin: 1em auto 3em;
+    }
+    .highlight {
+        display: block;
+        color: var(--primary);
+        font-size: 1.2em;
+        margin-top: .5em;
     }
     .section-content {
         display: flex;
@@ -70,7 +73,7 @@ import Accordion from "../Accordion.astro";
     .section-column {
         width: 47%;
     }
-    .content-list {
+    .content-accordion {
         display: flex;
         flex-direction: column;
         justify-content: space-between;

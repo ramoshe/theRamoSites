@@ -82,6 +82,8 @@ const { title } = Astro.props;
 
 		--background-color: var(--black);
 		--text-color: var(--white);
+
+		--animationEffect: .3s ease-in-out;
 	}
 	[data-theme="light"]:root {
 		--gray: #2E2C2B;
@@ -120,5 +122,13 @@ const { title } = Astro.props;
 		main {
 			padding: 0 20px;
 		}
+	}
+</style>
+<style is:inline>
+    a {
+        color: var(--accent-contrast);
+    }
+	a:hover {
+		color: var(--accent);
 	}
 </style>
