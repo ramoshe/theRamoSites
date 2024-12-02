@@ -63,9 +63,9 @@ const { items } = Astro.props;
         padding: 1em 1.2em;
         padding-top: .7em;
         border: 2px solid var(--primary-contrast);
+        border-radius: 0px 0px 14px 14px;
         border-top: none;
         border-right: none;
-        border-radius: 0px 0px 14px 14px;
     }
     .item-text p {
         overflow: hidden;
@@ -73,31 +73,27 @@ const { items } = Astro.props;
 </style>
 
 <script>
-
     class AccordionItem extends HTMLElement {
         isClosed: boolean = true;
         connectedCallback() {
-            const question = this.querySelector('.item-icontitle');
-            const closedIcon: HTMLElement | null = this.querySelector('.closed');
-            const openIcon: HTMLElement | null = this.querySelector('.open');
-            const answer: HTMLElement | null = this.querySelector('.item-text');
             const allAnswers: NodeListOf<HTMLElement> = document.querySelectorAll('.item-text');
             const allOpen: NodeListOf<HTMLElement> = document.querySelectorAll('.open');
             const allClosed: NodeListOf<HTMLElement> = document.querySelectorAll('.closed');
+            const answer: HTMLElement | null = this.querySelector('.item-text');
+            const closedIcon: HTMLElement | null = this.querySelector('.closed');
+            const openIcon: HTMLElement | null = this.querySelector('.open');
 
-            question!.addEventListener('click', () => {
+            this.addEventListener('click', () => {
                 if(this.isClosed) {
-                    allAnswers.forEach( oldAnswer => oldAnswer.classList.remove("open") );
+                    allAnswers.forEach( text => text.classList.remove("open") );
                     allOpen.forEach( icon => icon.style.display = "none" );
                     allClosed.forEach( icon => icon.style.display = "block" );
                     answer!.classList.add("open");
-                    // answer!.style.maxHeight = `fit-content`;
                     closedIcon!.style.display = "none";
                     openIcon!.style.display = "block";
                     this.isClosed = false;
                 } else {
                     answer!.classList.remove("open");
-                    // answer!.style.maxHeight = '0';
                     closedIcon!.style.display = "block";
                     openIcon!.style.display = "none";
                     this.isClosed = true;
