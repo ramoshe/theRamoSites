@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import Accordion from "../Accordion.astro";
 ---
 <section id="questions" class="section">
     <h3 class="section-heading">
@@ -14,76 +15,38 @@ import { Icon } from "astro-icon";
     <div class="section-content">
         <div class="section-column">
             <ul class="content-list">
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            Who is theRamoShe? Why is she the best?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        Rachel M. Sherard has a educational background in User Experience Design, Marketing Communications, Visual Art, and Media Production. With the power of these skills and a healthy dash of OCD, she is uniquely skilled in translating business needs into website functionality.
-                    </p>
-                </li>
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            What types of features can my website have?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        Examples include: social media links/embeds, blog, photo/video gallery, custom forms, e-commerce, membership with premium content, and anything you can dream of that is possible with code. Check the <a href="/services">Services page</a> for more details.
-                    </p>
-                </li>
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            How can I use the work I've already done?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        There are many ways that we might be able to integrate other platforms or transfer content from your existing site to your new one. We'll be sure to go over all of this in your initial consult.
-                    </p>
-                </li>
+                <Accordion items={[
+                    {
+                        title: `Who is theRamoShe? Why is she the best?`,
+                        text: `Rachel M. Sherard has a educational background in User Experience Design, Marketing Communications, Visual Art, and Media Production. With the power of these skills and a healthy dash of OCD, she is uniquely skilled in translating business needs into website functionality.`
+                    },
+                    {
+                        title: `What types of features can my website have?`,
+                        text: `Examples include: social media links/embeds, blog, photo/video gallery, custom forms, e-commerce, membership with premium content, and anything you can dream of that is possible with code. Check the <a href="/services">Services page</a> for more details.`
+                    },
+                    {
+                        title: `How can I use the work I've already done?`,
+                        text: `There are many ways that we might be able to integrate other platforms or transfer content from your existing site to your new one. We'll be sure to go over all of this in your initial consult`
+                    },
+                ]} />
             </ul>
         </div>
         <div class="section-column">
             <ul class="content-list">
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            How much will all of this cost?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        Check out the <a href="/pricing">Pricing page</a> for all the details about costs and payment schedule. The price you pay will be agreed upon and written into the Contract that is created after our initial meeting.
-                    </p>
-                </li>
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            Will I be able to make edits and updates?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        Absolutely! During our planning discussions, we'll determine which parts of your site you'll need to update regularly, and I'll customize the backend to make those areas easy for you to edit. And if you ever need design changes or deeper updates, RamoSites has got you covered!
-                    </p>
-                </li>
-                <li class="content-item">
-                    <div class="item-icontitle">
-                        <Icon class="item-icon" name="tabler:help" />
-                        <h4 class="item-title">
-                            How do I get started with my custom site?
-                        </h4>
-                    </div>
-                    <p class="item-text">
-                        The first step is <a href="/start">filling out the Get Started form</a> to let me know a little bit about what you're looking for. After you submit the form you'll get a link to schedule our inital consult meeting along with a few other steps you can take to prepare. A contract will be drawn up after our inital meeting and our journey to your dreams will proceed!
-                    </p>
-                </li>
+                <Accordion items={[
+                    {
+                        title: `How much will all of this cost?`,
+                        text: `Check out the <a href="/pricing">Pricing page</a> for all the details about costs and payment schedule. The price you pay will be agreed upon and written into the Contract that is created after our initial meeting.`
+                    },
+                    {
+                        title: `Will I be able to make edits and updates?`,
+                        text: `Absolutely! During our planning discussions, we'll determine which parts of your site you'll need to update regularly, and I'll customize the backend to make those areas easy for you to edit. And if you ever need design changes or deeper updates, RamoSites has got you covered!`
+                    },
+                    {
+                        title: `How do I get started with my custom site?`,
+                        text: `The first step is <a href="/start">filling out the Get Started form</a> to let me know a little bit about what you're looking for. After you submit the form you'll get a link to schedule our inital consult meeting along with a few other steps you can take to prepare. A contract will be drawn up after our inital meeting and our journey to your dreams will proceed!`
+                    },
+                ]} />
             </ul>
         </div>
     </div>
@@ -91,7 +54,6 @@ import { Icon } from "astro-icon";
 
 <style>
     ul { padding: 0; }
-    li { list-style-type: none; }
     #questions {
         margin: 4em 0;
     }
@@ -113,28 +75,5 @@ import { Icon } from "astro-icon";
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-    }
-    .content-item {
-        margin-bottom: 2em;
-    }
-    .item-icontitle {
-        display: flex;
-    }
-    .item-icon {
-        width: 30px;
-        height: auto;
-        color: var(--primary-contrast);
-        margin-right: .5em;
-    }
-    .item-title {
-        flex-shrink: 100;
-    }
-    .item-text {
-        color: var(--gray);
-        font-size: .9em;
-        margin-top: .5em;
-    }
-    .item-text a {
-        color: var(--accent-contrast);
     }
 </style>

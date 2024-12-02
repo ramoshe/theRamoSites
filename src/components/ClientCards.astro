@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon";
+
+interface Item {
+    icon: string;
+    title: string;
+    text: string;
+    link: string;
+}
+interface Props {
+    items: Array<Item>;
+}
+const { items } = Astro.props;
+---
+{ items.map(({ icon, title, text, link }) => (
+    <div class="client-card">
+        <Icon class="client-logo" name={icon} />
+        <h4 class="client-name">{title}</h4>
+        <p class="client-text">{text}&nbsp;<a href={link} target="_blank">Check it out.</a></p>
+    </div>
+)) }
+
+<style>
+    .client-card {
+        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: var(--background-color);
+        padding: 1em 1.2em;
+        border: 1px solid var(--gray-contrast);
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+    }
+    .client-logo {
+        height: 30px;
+        width: auto;
+        margin-right: 1em;
+    }
+    .client-text {
+        font-size: .8em;
+        color: var(--gray);
+        margin-top: 1em;
+    }
+    .client-text a {
+        color: var(--accent-contrast);
+        white-space: nowrap;
+    }
+
+    @media (max-width: 800px) {
+        .client-card {
+            min-width: 80%;
+        }
+    }
+</style>

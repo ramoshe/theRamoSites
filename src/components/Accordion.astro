@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon";
+
+interface Item {
+    title: string;
+    text: string;
+}
+interface Props {
+    items: Array<Item>;
+}
+const { items } = Astro.props;
+---
+{ items.map(({ title, text }) => (
+    <li class="content-item">
+        <div class="item-icontitle">
+            <Icon class="item-icon" name="tabler:help" />
+            <h4 class="item-title">{title}</h4>
+        </div>
+        <p class="item-text" set:html={text}></p>
+    </li>
+))}
+
+<style>
+    li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .content-item {
+        margin-bottom: 2em;
+    }
+    .item-icontitle {
+        display: flex;
+    }
+    .item-icon {
+        width: 30px;
+        height: auto;
+        color: var(--primary-contrast);
+        margin-right: .5em;
+    }
+    .item-title {
+        flex-shrink: 100;
+    }
+    .item-text {
+        color: var(--gray);
+        font-size: .9em;
+        margin-top: .5em;
+    }
+</style>
+<style is:inline>
+    .item-text a {
+        color: var(--accent-contrast);
+    }
+</style>
