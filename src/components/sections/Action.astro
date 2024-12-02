@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon";
+import Button from "../Button.astro";
 ---
-<div id="action" class="section">
+<section id="action" class="section">
     <div class="section-container">
         <h2 class="section-title">
             More Deets!
@@ -9,13 +10,11 @@ import { Icon } from "astro-icon";
         <p class="section-content">
             Want more details about Myte's services and their pricing? <br />Click below to see a PDF with all the details!
         </p>
-        <a href="/RamoSites_Services_Pricing.pdf" target="_blank" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />View Details</a>
+        <Button type="btn-primary" link="/pricing" icon="tabler:arrow-big-right-lines" text="View Details" />
     </div>
-</div>
+</section>
 
 <style>
-    .btn { width: fit-content; }
-
     #action {
         margin: 7em 0;
     }

@@ -9,13 +9,16 @@ import StartImage from '../assets/undraw_proud_coder.svg';
 	<div id="start">
         <div class="content-text">
             <h2 class="content-title">So you wanna <span class="title-highlight">Get Started</span> with your Custom Site today?</h2>
-            <p class="content-instructions">Fill out the form below with a little info about yourself and your business so that we can get this train rolling.</p>
+            <div class="content-instructions">
+                <p>Fill out the form below with info about yourself and your business. We'll discuss all of this in our initial meeting before your contract is drawn up.</p>
+                <p>If there's something you'd rather talk through than type that's totally understandable. However, providing more info will give us a better head start.</p>
+            </div>
         </div>
         <div class="content-image">
             <Image src={StartImage} alt="" />
         </div>
         <div class="content-form">
-            <script is:inline type="text/javascript" src="//mautic.ramoshe.com/form/generate.js?id=4"></script>
+            <script is:inline type="text/javascript" src="//mautic.ramoshe.com/form/generate.js?id=5"></script>
         </div>
     </div>
 </Layout>
@@ -46,10 +49,14 @@ import StartImage from '../assets/undraw_proud_coder.svg';
     .content-instructions {
         margin: 2em 0;
     }
+    .content-instructions p {
+        margin-bottom: 1em;
+    }
     .content-form {
         width: 80%;
         max-width: 800px;
         margin: 0 auto;
+        margin-top: 2em;
     }
 
     @media (max-width: 800px) {
@@ -62,6 +69,12 @@ import StartImage from '../assets/undraw_proud_coder.svg';
     }
 </style>
 <style is:inline>
+    .content-form h3 {
+        margin-bottom: .7em;
+        font-weight: 900 !important;
+        color: var(--primary-contrast);
+        border-bottom: 3px solid var(--primary-contrast);
+    }
     .content-form label {
         display: block;
         font-weight: bold;
@@ -75,15 +88,18 @@ import StartImage from '../assets/undraw_proud_coder.svg';
         padding: .5em;
         margin-bottom: 1.5em;
     }
+    .content-form input:focus, .content-form textarea:focus {
+        outline: 2px solid var(--accent-contrast);
+    }
     .content-form .half {
         width: 47%;
         float: left;
     }
-    .content-form .half:first-of-type {
+    .content-form .half-first {
         margin-right: 6%;
     }
     .content-form button {
         border: none;
-        margin: 0 auto;
+        margin: 3em auto;
     }
 </style>

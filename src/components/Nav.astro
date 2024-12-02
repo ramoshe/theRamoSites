@@ -1,0 +1,31 @@
+---
+import Button from "./Button.astro";
+---
+<nav class="nav">
+    <a class="navlink" href="/services">Services</a>
+    <a class="navlink" href="/compare">Compare</a>
+    <a class="navlink" href="/pricing">Pricing</a>
+    <Button type="btn-secondary" link="/start" text="Get Started" />
+</nav>
+
+<style>
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navlink {
+        margin: 0 1.4em;
+        text-decoration: none;
+        color: var(--text-color);
+    }
+    .navlink:hover {
+        color: var(--accent-contrast);
+    }
+
+    @media (max-width: 800px) {
+        .nav {
+            display: none;
+        }
+    }
+</style>

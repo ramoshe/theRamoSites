@@ -7,10 +7,9 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
-	description?: string;
 }
 
-const { title, description } = Astro.props;
+const { title } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -33,7 +32,7 @@ const { title, description } = Astro.props;
 		<link rel="manifest" href="/site.webmanifest">
 
 		<SEO
-			description={description ? description : "RamoSites offers bespoke website design and development with high-quality code, perfect for creatives, entrepreneurs, content creators, live streamers, musicians, artists, and small businesses. Elevate your brand with our user-centric, expertly crafted websites."}
+			description="RamoSites offers bespoke website design and development with high-quality code, perfect for creatives, entrepreneurs, content creators, live streamers, musicians, artists, and small businesses. Elevate your brand with our user-centric, expertly crafted websites."
 			openGraph={{
 				basic: {
 				title: "RamoSites",
@@ -121,45 +120,5 @@ const { title, description } = Astro.props;
 		main {
 			padding: 0 20px;
 		}
-	}
-
-	.btn {
-		margin: 1em;
-		padding: .7em 2em;
-		border-radius: 50px;
-		text-decoration: none;
-		color: var(--text-color);
-		font-size: .9em;
-		font-weight: bold;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.btn svg {
-		height: 1.5em;
-		width: auto;
-		margin-right: .5em;
-	}
-	.btn-primary { background-color: var(--accent); color: var(--black); }
-	.btn-primary:hover { background-color: var(--secondary-contrast); }
-	.btn-secondary { border: 1px solid var(--text-color); }
-	.btn-secondary:hover { background-color: var(--accent-contrast); }
-
-	.policy-container {
-		max-width: 800px;
-		margin: 0 auto;
-	}
-	.policy-title {
-		font-size: 3em;
-		font-family: var(--font-display);
-		margin: 1em 0 0;
-	}
-	.termageddon h3 {
-		margin-top: 1em;
-	}
-	.termageddon p, .termageddon ul {
-		font-size: .9em;
-		color: var(--gray);
-		margin-bottom: 1em;
 	}
 </style>

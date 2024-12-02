@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+	type: string;
+    link: string;
+    icon?: string;
+    text: string;
+	window?: boolean;
+}
+
+const { type, link, icon, text, window } = Astro.props;
+---
+<a href={link} class=`btn ${type}` target={ window ? "_blank" : "_self" }>{ icon ? <Icon name={icon} /> : null }{text}</a>
+
+<style is:global>
+    .btn {
+		margin: 1em;
+		padding: .7em 2em;
+		border-radius: 50px;
+		text-decoration: none;
+		color: var(--text-color);
+		font-size: .9em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.btn svg {
+		height: 1.5em;
+		width: auto;
+		margin-right: .5em;
+	}
+	.btn-primary {
+        background-color: var(--accent);
+        color: var(--black);
+    }
+	.btn-primary:hover {
+        background-color: var(--secondary-contrast);
+    }
+
+	.btn-secondary {
+        border: 1px solid var(--text-color);
+    }
+	.btn-secondary:hover {
+        background-color: var(--accent-contrast);
+        color: var(--background-color);
+    }
+</style>

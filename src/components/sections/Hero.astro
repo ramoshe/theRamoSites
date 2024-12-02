@@ -1,25 +1,26 @@
 ---
 import { Icon } from "astro-icon";
-
 import { Image } from "astro:assets";
+import Button from "../Button.astro";
 import videoPlaceholder from "../../assets/videoPlaceholder.png";
 ---
-<div id="hero" class="section">
+<section id="hero" class="section">
     <h1 class="hero-title">
-        Elevate your Online Brand with a <span class="title-highlight">Custom Built</span> website
+        Hand Crafted Websites <br /> <span class="title-highlight">Built to Glow</span>
     </h1>
     <p class="hero-text">
-        Site builders, link pages, and other platforms offer a quick and easy way to get started, but to take things to the next level you need a custom built website that highlights the full uniqueness your brand and fits your specific business needs.
+        Are you an entrepreneur and/or creative looking to avoid the frustrations of website and online business development and set yourself up for future growth? You've come to the right place.
     </p>
     <div class="hero-buttons">
-        <a href="/start" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Get Started</a>
-        <a href="#steps" class="btn btn-secondary">How It Works</a>
+        <Button type="btn-primary" icon="tabler:arrow-big-right-lines" link="/start" text="Get Started" />
+        <Button type="btn-secondary" link="#steps" text="How It Works" />
     </div>
     <div class="hero-video">
+        <!-- TODO - Replace video -->
         <!-- <iframe class="youtube-video" src="https://www.youtube.com/embed/_PEv9VeWtmY?si=OmcPSq0skTWSe_uR&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
         <Image src={videoPlaceholder} alt="video placeholder" class="placeholder" />
     </div>
-</div>
+</section>
 
 <style>
     .placeholder {
@@ -65,6 +66,9 @@ import videoPlaceholder from "../../assets/videoPlaceholder.png";
         }
         .hero-buttons .btn {
             width: 80%;
+        }
+        .hero-title br {
+            display: none;
         }
     }
 </style>

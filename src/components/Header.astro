@@ -1,22 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import Logo from "../assets/logo.svg";
 import { ThemeSwitch } from "astro-color-scheme";
 import { Icon } from "astro-icon";
+import Logo from "../assets/logo.svg";
+import Nav from "./Nav.astro";
 ---
 <header>
     <a class="logo-name" href="/">
-        <Image class="logo" src={Logo} alt="Myte Logo" />
-        <span class="name">RamoSites</span>
+        <Image class="logo" src={Logo} alt="theRamoShe Logo" />
+        <span class="name">Sites by theRamoShe</span>
     </a>
     <div class="toggle-button">
         <div class="toggle">
             <ThemeSwitch strategy="checkbox" defaultTheme="dark">
                 <input type="checkbox" id="toggle" />
-                <label for="toggle"><Icon  name="heroicons-outline:sun" /></label>
+                <label for="toggle"><Icon name="tabler:sun" /></label>
             </ThemeSwitch>
         </div>
-        <a href="/start" class="btn btn-secondary start-button">Get Started</a>
+        <Nav />
     </div>
 </header>
 
@@ -25,8 +26,8 @@ import { Icon } from "astro-icon";
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 10px auto;
-        padding: 0 20px;
+        margin: 20px auto;
+        padding: 0 30px;
         width: 100%;
         max-width: 1400px;
     }
@@ -39,8 +40,8 @@ import { Icon } from "astro-icon";
         color: var(--text-color);
     }
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
     }
     .name {
         font-weight: bold;
@@ -55,7 +56,7 @@ import { Icon } from "astro-icon";
     }
     .toggle {
         line-height: 0;
-        padding: .5em;
+        padding: 0 1.4em;
     }
     .toggle svg {
         width: 30px;
@@ -64,11 +65,5 @@ import { Icon } from "astro-icon";
         background-color: var(--accent);
         border-radius: 10px;
         color: var(--black);
-    }
-
-    @media (max-width: 800px) {
-        .start-button {
-            display: none;
-        }
     }
 </style>

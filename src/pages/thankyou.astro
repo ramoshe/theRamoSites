@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon';
 
@@ -16,8 +17,8 @@ import ThanksImage from '../assets/undraw_appreciation.svg';
                 You've just taken the first step toward making your website dreams come true! theRamoShe will be in touch very shortly to schedule your inital consult appontment! In the meantime, scroll down to take a look at some next steps you can take to prepare.
             </p>
             <div class="thanks-buttons">
-                <a href="#next" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Next Steps</a>
-                <a href="/" class="btn btn-secondary">Back to Home</a>
+                <Button type="btn-primary" link="#next" icon="tabler:arrow-big-right-lines" text="Next Steps" />
+                <Button type="btn-secondary" link="/" text="Back to Home" />
             </div>
         </div>
         <div class="content-image">
@@ -79,7 +80,7 @@ import ThanksImage from '../assets/undraw_appreciation.svg';
             <p class="more-content">
                 Rachel is a designer, developer, streamer, and wood burning artist. <br />Check out her links and works on her website!
             </p>
-            <a href="https://theramoshe.com" target="_blank" class="btn btn-primary"><Icon name="tabler:arrow-big-right-lines" />Go To theRamoShe.com</a>
+            <Button type="btn-primary" link="https://theramoshe.com" window icon="tabler:arrow-big-right-lines" text="Go To theRamoShe.com" />
         </div>
     </div>
 </Layout>
