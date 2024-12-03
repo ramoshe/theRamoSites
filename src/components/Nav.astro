@@ -1,10 +1,11 @@
 ---
+const path = new URL(Astro.request.url).pathname;
 import Button from "./Button.astro";
 ---
 <nav class="nav">
-    <a class="navlink" href="/services">Services</a>
-    <a class="navlink" href="/compare">Compare</a>
-    <a class="navlink" href="/pricing">Pricing</a>
+    <a class="navlink" class:list={path === "/services" ? "active" : ""} href="/services">Services</a>
+    <a class="navlink" class:list={path === "/compare" ? "active" : ""} href="/compare">Compare</a>
+    <a class="navlink" class:list={path === "/pricing" ? "active" : ""} href="/pricing">Pricing</a>
     <span class="button-wrapper">
         <Button type="btn-secondary" link="/start" text="Get Started" />
     </span>
@@ -24,6 +25,9 @@ import Button from "./Button.astro";
     }
     .navlink:hover {
         color: var(--accent-contrast);
+    }
+    .navlink.active {
+        color: var(--secondary-contrast);
     }
     .button-wrapper {
         margin-left: 1.5em;

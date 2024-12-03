@@ -4,6 +4,7 @@ import { ThemeSwitch } from "astro-color-scheme";
 import { Icon } from "astro-icon";
 import Logo from "../assets/logo.svg";
 import Nav from "./Nav.astro";
+import MobileNav from "./MobileNav.astro";
 ---
 <header>
     <a class="logo-name" href="/">
@@ -17,9 +18,10 @@ import Nav from "./Nav.astro";
                 <label for="toggle"><Icon name="tabler:sun" /></label>
             </ThemeSwitch>
         </div>
-        <Nav />
+        <span id="regularnav"><Nav /></span>
     </div>
 </header>
+<span id="mobilenav"><MobileNav /></span>
 
 <style>
     header {
@@ -67,5 +69,20 @@ import Nav from "./Nav.astro";
     .toggle:hover {
         background-color: var(--accent);
         color: var(--black);
+    }
+
+    @media (min-width: 1200px) {
+        #mobilenav {
+            display: none;
+        }
+    }
+    @media (max-width: 1200px) {
+        #regularnav {
+            display: none;
+        }
+        header {
+            margin-left: 0;
+            padding-right: 12vw;
+        }
     }
 </style>

@@ -1,0 +1,128 @@
+---
+const path = new URL(Astro.request.url).pathname;
+---
+<label class="hamburger-menu">
+  <input type="checkbox">
+</label>
+<aside class="sidebar">
+  <nav class="nav">
+    <ul class="nav-menu">
+      <!-- <li class="menu-item"><a href="/" class={path === "" ? "active" : ""}>Home</a></li> -->
+      <li class="menu-item" class:list={path === "/services" ? "active" : ""}><a href="/services">Services</a></li>
+      <li class="menu-item" class:list={path === "/compare" ? "active" : ""}><a href="/compare">Compare</a></li>
+      <li class="menu-item" class:list={path === "/pricing" ? "active" : ""}><a href="/pricing">Pricing</a></li>
+      <li class="menu-item start" class:list={path === "/start" ? "active" : ""}><a href="/start">Get Started</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+  :root {
+    --bar-width: 40px;
+    --bar-height: 4px;
+    --hamburger-gap: 7px;
+    --foreground: var(--text-color);
+    --background: var(--background-color);
+    --hamburger-margin: 4.15%;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
+  }
+  .hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    right: calc(var(--hamburger-margin)*1.5);
+    z-index: 2;
+    cursor: pointer;
+  }
+  .hamburger-menu:has(input:checked) {
+    --foreground: var(--background-color);
+    --background: var(--text-color);
+  }
+  .hamburger-menu:has(input:focus-visible)::before,
+  .hamburger-menu:has(input:focus-visible)::after,
+  .hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+  }
+  .hamburger-menu::before,
+  .hamburger-menu::after,
+  .hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 100px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+  }
+  .hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+  }
+  .hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)/-2);
+  }
+  .hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)/2);
+  }
+  .hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+  }
+  .sidebar {
+    transition: translate var(--animation-timing);
+    translate: 200%;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    min-width: 50vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+  }
+  .nav-menu {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu-item {
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+  }
+  .menu-item.active {
+    background-color: color-mix(in oklab, var(--secondary-contrast) 50%, var(--foreground));
+  }
+  .menu-item a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2em;
+  }
+  .menu-item.active a {
+    font-weight: 700;
+  }
+  .menu-item.start {
+    color: var(--primary);
+    font-weight: 700;
+  }
+</style>
