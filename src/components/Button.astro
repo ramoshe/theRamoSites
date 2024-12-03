@@ -15,7 +15,7 @@ const { type, link, icon, text, window } = Astro.props;
 
 <style is:global>
     .btn {
-		margin: 1em;
+		margin: 1.5em;
 		padding: .7em 2em;
 		border-radius: 50px;
 		text-decoration: none;
@@ -38,13 +38,14 @@ const { type, link, icon, text, window } = Astro.props;
     }
 	.btn-primary:hover {
         background-color: var(--accent-contrast);
+		color: var(--black);
     }
 
 	.btn-secondary {
         border: 1px solid var(--text-color);
     }
 	.btn-secondary:hover {
-        background-color: var(--accent-contrast);
+        background-color: var(--accent);
         color: var(--background-color);
     }
 </style>

@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import videoPlaceholder from "../../assets/videoPlaceholder.png";
@@ -12,10 +11,10 @@ import videoPlaceholder from "../../assets/videoPlaceholder.png";
         Are you an entrepreneur and/or creative looking to avoid the frustrations of website and online business development and set yourself up for future growth? You've come to the right place.
     </p>
     <div class="hero-buttons">
-        <Button type="btn-primary" icon="tabler:arrow-big-right-lines" link="/start" text="Get Started" />
-        <Button type="btn-secondary" link="#steps" text="How It Works" />
+        <Button type="btn-primary" icon="tabler:arrow-big-right-lines" link="/start" text="Start Today!" />
+        <Button type="btn-secondary" link="#video" text="Watch the Intro" window />
     </div>
-    <div class="hero-video">
+    <div class="hero-video" id="video">
         <!-- TODO - Replace video -->
         <!-- <iframe class="youtube-video" src="https://www.youtube.com/embed/_PEv9VeWtmY?si=OmcPSq0skTWSe_uR&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
         <Image src={videoPlaceholder} alt="video placeholder" class="placeholder" />

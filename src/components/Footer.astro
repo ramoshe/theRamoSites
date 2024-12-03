@@ -1,6 +1,38 @@
 ---
 import { Icon } from "astro-icon";
-const year = new Date().getFullYear()
+const year = new Date().getFullYear();
+const socials = [
+    {
+        platform: `YouTube`,
+        icon: `tabler:brand-youtube`,
+        link: `https://youtube.com/@theramoshe`
+    },
+    {
+        platform: `TikTok`,
+        icon: `tabler:brand-tiktok`,
+        link: `https://tiktok.com/@theramoshe`
+    },
+    {
+        platform: `Instagram`,
+        icon: `tabler:brand-instagram`,
+        link: `https://instagram.com/theramoshe`
+    },
+    {
+        platform: `Facebook`,
+        icon: `tabler:brand-facebook`,
+        link: `https://facebook.com/theramoshe`
+    },
+    {
+        platform: `GitHub`,
+        icon: `tabler:brand-github`,
+        link: `https://github.com/ramoshe`
+    },
+    // {
+    //     platform: ``,
+    //     icon: ``,
+    //     link: ``
+    // },
+];
 ---
 <footer>
     <div id="footer-container">
@@ -11,40 +43,17 @@ const year = new Date().getFullYear()
         </div>
         <div class="socials">
             <ul class="socials-list">
-                <li class="social-item">
-                    <a href="https://youtube.com/@theramoshe" target="_blank" aria-label="YouTube">
-                        <Icon name="tabler:brand-youtube" class="social-icon" />
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="https://tiktok.com/@theramoshe" target="_blank" aria-label="TikTok">
-                        <Icon name="tabler:brand-tiktok" class="social-icon" />
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="https://twitter.com/theramoshe" target="_blank" aria-label="Twitter">
-                        <Icon name="tabler:brand-x" class="social-icon" />
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="https://facebook.com/theramoshe" target="_blank" aria-label="Facebook">
-                        <Icon name="tabler:brand-facebook" class="social-icon" />
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="https://github.com/ramoshe" target="_blank" aria-label="GitHub">
-                        <Icon name="tabler:brand-github" class="social-icon" />
-                    </a>
-                </li>
-                <li class="social-item">
-                    <a href="https://youtube.com/@theramoshe" target="_blank" aria-label="YouTube">
-                        <Icon name="tabler:brand-youtube" class="social-icon" />
-                    </a>
-                </li>
+                { socials.map(s => (
+                    <li class="social-item">
+                        <a href={s.link} target="_blank" aria-label={s.platform}>
+                            <Icon name={s.icon} class="social-icon" />
+                        </a>
+                    </li>
+                )) }
             </ul>
         </div>
         <div class="copyright">
-            <p>&copy; {year} theRamoShe · All rights reserved.</p>
+            <p>&copy; {year} <a href="https://theramoshe.com" target="_blank">theRamoShe</a> · All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -87,7 +96,7 @@ const year = new Date().getFullYear()
         color: var(--gray);
     }
     .social-icon:hover {
-        color: var(--accent);
+        color: var(--accent-contrast);
     }
 
     .copyright {
@@ -96,6 +105,12 @@ const year = new Date().getFullYear()
         margin-top: 4em;
         font-size: .8em;
         color: var(--gray);
+    }
+    .copyright a {
+        color: var(--gray);
+    }
+    .copyright a:hover {
+        color: var(--accent-contrast);
     }
 
     @media (max-width: 800px) {
