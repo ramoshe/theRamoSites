@@ -27,3 +27,6 @@
     clip-path: inset(0 -100vmax);
     padding: 4em 0;
 }
+.section.top {
+    margin-top: 3.5em;
+}
