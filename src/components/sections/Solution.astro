@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import Image1 from '../../assets/undraw_software_engineer.svg';
 import Image2 from '../../assets/undraw_web_devices.svg'
 ---
-<section id="solution" class="section">
+<section id="solution" class="section gray">
     <h3 class="section-heading">
         The Solution
     </h3>
@@ -117,17 +117,13 @@ import Image2 from '../../assets/undraw_web_devices.svg'
 </section>
 
 <style>
-    #solution {
-        background-color: var(--gray-contrast);
-        box-shadow: 0 0 0 100vmax var(--gray-contrast);
-        clip-path: inset(0 -100vmax);
-        padding: 4em 0;
-    }
     ul { padding: 0; }
     li { list-style-type: none; }
 
     .section-intro {
         margin: 1em 0;
+        text-align: left;
+        width: 100%;
     }
     .section-content {
         display: flex;
