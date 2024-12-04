@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-
 import StartImage from '../assets/undraw_proud_coder.svg';
 ---
 
 <Layout title="Get Started">
-	<div id="start">
+	<section id="start" class="section">
         <div class="content-text">
             <h2 class="content-title">So you wanna <span class="title-highlight">Get Started</span> with your Custom Site today?</h2>
             <div class="content-instructions">
@@ -17,17 +16,19 @@ import StartImage from '../assets/undraw_proud_coder.svg';
         <div class="content-image">
             <Image src={StartImage} alt="" />
         </div>
+    </section>
+    <section id="form" class="section">
         <div class="content-form">
             <script is:inline type="text/javascript" src="//mautic.ramoshe.com/form/generate.js?id=5"></script>
         </div>
-    </div>
+    </section>
 </Layout>
 <style>
     #start {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 7em 0;
+        margin: 5em 0 4em;
     }
     .content-text {
         width: 47%;
@@ -52,53 +53,56 @@ import StartImage from '../assets/undraw_proud_coder.svg';
     .content-instructions p {
         margin-bottom: 1em;
     }
-    .content-form {
-        width: 80%;
+
+    #form {
         max-width: 800px;
-        margin: 0 auto;
-        margin-top: 2em;
+        margin: 0 auto 7em;
     }
 
     @media (max-width: 800px) {
         .content-text, .content-image {
             width: 100%;
         }
-        .content-image {
-            order: 3
+        .content-image img {
+            max-height: 200px;
         }
     }
 </style>
 <style is:inline>
-    .content-form h3 {
-        margin-bottom: .7em;
-        font-weight: 900 !important;
+    #form h3 {
+        margin-bottom: 1.5em;
+        font-weight: 800 !important;
         color: var(--primary-contrast);
-        border-bottom: 3px solid var(--primary-contrast);
+        /* color: red; */
+        border-bottom: 2px solid var(--primary-contrast);
     }
-    .content-form label {
+    #form .form-spacer {
+        height: 9em;
+    }
+    #form label {
         display: block;
         font-weight: bold;
         font-size: .9em;
     }
-    .content-form input, .content-form textarea {
+    #form input, #form textarea {
         width: 100%;
         height: 100%;
-        border: 2px solid var(--gray-mid);
+        border: 1px solid var(--gray-mid);
         border-radius: 4px;
         padding: .5em;
         margin-bottom: 1.5em;
     }
-    .content-form input:focus, .content-form textarea:focus {
-        outline: 2px solid var(--accent-contrast);
+    #form input:focus, #form textarea:focus {
+        outline: 1px solid var(--accent);
     }
-    .content-form .half {
+    #form .half {
         width: 47%;
         float: left;
     }
-    .content-form .half-first {
+    #form .half-first {
         margin-right: 6%;
     }
-    .content-form button {
+    #form button {
         border: none;
         margin: 3em auto;
     }

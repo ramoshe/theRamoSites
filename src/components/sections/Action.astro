@@ -1,8 +1,7 @@
 ---
-import { Icon } from "astro-icon";
 import Button from "../Button.astro";
 ---
-<section id="action" class="section">
+<section id="action" class="section cta">
     <div class="section-container">
         <h2 class="section-title">
             Tell Me More!
@@ -11,42 +10,9 @@ import Button from "../Button.astro";
             Want more details about theRamoShe's services and pricing? <br />Click one of the buttons below!
         </p>
         <div class="content-buttons">
-            <Button type="btn-primary" icon="tabler:moneybag" link="/pricing" text="Pricing" />
-            <Button type="btn-primary" icon="tabler:tools" link="/services" text="Services" />
-            <Button type="btn-primary" icon="tabler:scale" link="/compare" text="Compare" />
+            <Button type="primary" icon="tabler:moneybag" link="/pricing" text="Pricing" />
+            <Button type="primary" icon="tabler:tools" link="/services" text="Services" />
+            <Button type="primary" icon="tabler:scale" link="/compare" text="Compare" />
         </div>
     </div>
 </section>
-
-<style>
-    #action {
-        margin: 7em 0;
-    }
-
-    .section-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid var(--gray-mid);
-        border-radius: 20px;
-        width: fit-content;
-        margin: 0 auto;
-        padding: 2em 3em;
-    }
-    .section-content {
-        margin: 1em 0;
-        text-align: center;
-    }
-    .content-buttons {
-        display: flex;
-    }
-
-    @media (max-width: 800px) {
-        .section-container {
-            padding: 2em;
-        }
-        .section-content br {
-            display: none;
-        }
-    }
-</style>

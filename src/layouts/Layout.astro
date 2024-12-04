@@ -66,7 +66,7 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	html {
-		font-size: 20px;
+		font-size: var(--font-size-desktop);
 		color: var(--text-color);
 		background-color: var(--background-color);
 	}
@@ -76,21 +76,20 @@ const { title } = Astro.props;
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		/* overflow-x: hidden; */
 		font-display: optional;
 	}
 	main {
 		margin: 0 auto;
 		width: 100%;
-		max-width: 1200px;
-		padding: 0 50px;
+		max-width: var(--body-width);
+		padding: var(--body-padding-desktop);
 	}
 	@media (max-width: 1200px) {
 		html {
-			font-size: 18px;
+			font-size: var(--font-size-mobile);
 		}
 		main {
-			padding: 0 20px;
+			padding: var(--body-padding-mobile);
 		}
 	}
 </style>

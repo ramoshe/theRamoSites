@@ -2,6 +2,14 @@
     --font-primary: 'Nunito', sans-serif;
     --font-display: 'Permanent Marker', sans-serif;
 
+    --font-size-desktop: 20px;
+    --font-size-mobile: 18px;
+
+    --body-width: 1200px;
+    --headfoot-width: 1400px;
+    --body-padding: 0 50px;
+    --body-padding-mobile: 0 20px;
+
     --animationEffect: .4s ease-in-out;
 
     --black: #1F1D1D;

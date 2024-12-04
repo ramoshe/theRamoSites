@@ -1,3 +1,4 @@
+/* moved from index */
 .section-intro {
     width: 80%;
     text-align: center;
@@ -21,12 +22,47 @@
 .section-intro {
     color: var(--gray);
 }
+
+/* gives full width gray background */
 .section.gray {
     background-color: var(--gray-contrast);
     box-shadow: 0 0 0 100vmax var(--gray-contrast);
     clip-path: inset(0 -100vmax);
     padding: 4em 0;
 }
+
+/* For sections at the top of pages (services, compare, pricing) */
 .section.top {
     margin-top: 3.5em;
+}
+
+/* for CTA section */
+.section.cta {
+    margin: 7em 0;
+}
+.section.cta .section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--gray-mid);
+    border-radius: 20px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2em 3em;
+}
+.section.cta .section-content {
+    margin: 1em 0;
+    text-align: center;
+}
+.section.cta .content-buttons {
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .section-container {
+        padding: 2em;
+    }
+    .section-content br {
+        display: none;
+    }
 }
