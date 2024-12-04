@@ -1,24 +1,25 @@
 :root {
-    --black: #1F1D1D;
-    --white: #F7F7F7;
-    --gray-mid: #7A7471;
-    --primary:#268184;
-    --primary-contrast: #5da1a3;
-    --secondary: #ab6336;
-    --secondary-contrast: #c08a69;
-    --accent: #d7a03a;
-
     --font-primary: 'Nunito', sans-serif;
     --font-display: 'Permanent Marker', sans-serif;
 
+    --animationEffect: .4s ease-in-out;
+
+    --black: #1F1D1D;
+    --white: #F7F7F7;
+    --gray-mid: #7A7471;
+
+    --primary:#268184;
+    --secondary: #ab6336;
+    --accent: #d7a03a;
+
     --gray: #EBEAEA;
     --gray-contrast: #2E2C2B;
+    --primary-contrast: #5da1a3;
+    --secondary-contrast: #c08a69;
     --accent-contrast: #E1B86C;
 
     --background-color: var(--black);
     --text-color: var(--white);
-
-    --animationEffect: .3s ease-in-out;
 }
 [data-theme="light"]:root {
     --gray: #2E2C2B;

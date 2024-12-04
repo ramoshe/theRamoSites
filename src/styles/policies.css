@@ -1,0 +1,17 @@
+.policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.policy-title {
+    font-size: 3em;
+    font-family: var(--font-display);
+    margin: 1em 0 0;
+}
+.termageddon h3 {
+    margin-top: 1em;
+}
+.termageddon p, .termageddon ul {
+    font-size: .9em;
+    color: var(--gray);
+    margin-bottom: 1em;
+}
