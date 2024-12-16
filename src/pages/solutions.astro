@@ -1,6 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import '../styles/section.css';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Solutions">
@@ -14,6 +15,19 @@ import '../styles/section.css';
         <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <div class="section-content">
             <h4>This page is under construction. Check back soon!</h4>
+        </div>
+    </section>
+    <section id="action" class="section cta">
+        <div class="section-container">
+            <h2 class="section-title">
+                Get Started!
+            </h2>
+            <p class="section-content">
+                Ready to get started building your dreams? <br />Fill out the form today!
+            </p>
+            <div class="content-buttons">
+                <Button type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
+            </div>
         </div>
     </section>
 </Layout>
