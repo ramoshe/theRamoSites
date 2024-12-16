@@ -20,7 +20,7 @@
     --secondary: #ab6336;
     --accent: #d7a03a;
 
-    --gray: #EBEAEA;
+    --gray: #DFDDDC;
     --gray-contrast: #2E2C2B;
     --primary-contrast: #5da1a3;
     --secondary-contrast: #c08a69;
@@ -30,7 +30,7 @@
     --text-color: var(--white);
 }
 [data-theme="light"]:root {
-    --gray: #2E2C2B;
+    --gray: #3D3A39;
     --gray-contrast: #EBEAEA;
     --primary-contrast: #185153;
     --secondary-contrast: #814b29;
