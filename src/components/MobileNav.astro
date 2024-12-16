@@ -8,8 +8,9 @@ const path = new URL(Astro.request.url).pathname;
   <nav class="nav">
     <ul class="nav-menu">
       <li class="menu-item"><a href="/" class={path === "" ? "active" : ""}>Home</a></li>
-      <li class="menu-item" class:list={path === "/services-pricing" ? "active" : ""}><a href="/services-pricing">Services & Pricing</a></li>
+      <li class="menu-item" class:list={path === "/solutions" ? "active" : ""}><a href="/solutions">Solutions</a></li>
       <li class="menu-item" class:list={path === "/compare" ? "active" : ""}><a href="/compare">Compare</a></li>
+      <li class="menu-item" class:list={path === "/contact" ? "active" : ""}><a href="/contact">Contact</a></li>
       <!-- <li class="menu-item" class:list={path === "/blog" ? "active" : ""}><a href="/pricing">Blog</a></li> -->
       <li class="menu-item start" class:list={path === "/start" ? "active" : ""}><a href="/start">Get Started</a></li>
     </ul>
