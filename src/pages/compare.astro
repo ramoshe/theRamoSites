@@ -2,6 +2,15 @@
 import '../styles/section.css';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
+import CTA from '../components/pieces/CTA.astro';
+
+import factors from '../data/factors.json';
+import rscomp from '../data/rscomp.json';
+import compare from '../data/comparison.json';
+
+let select = "";
+let selected = compare.find(c => c.slug === select);
+let selectedFactors: any = selected?.factors;
 ---
 
 <Layout title="Compare">
@@ -13,27 +22,183 @@ import Button from '../components/Button.astro';
             How does RamoSites stack up?
         </h2>
         <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="section-content">
-            <h4>This page is under construction. Check back soon!</h4>
-        </div>
     </section>
-    <section id="action" class="section cta">
+    <section id="buttons" class="section">
+        <Button type="secondary" link="#" text="Site Builders" idname="sb" classname="choice" />
+        <Button type="secondary" link="#" text="Freelancers" idname="fl" classname="choice" />
+        <Button type="secondary" link="#" text="WordPress" idname="wp" classname="choice" />
+        <Button type="secondary" link="#" text="Agencies" idname="ag" classname="choice" />
+    </section>
+    <section id="detail" class="section">
         <div class="section-container">
-            <h2 class="section-title">
-                Get Started!
-            </h2>
-            <p class="section-content">
-                Ready to get started building your dreams? <br />Fill out the form today!
-            </p>
-            <div class="content-buttons">
-                <Button type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
+            <div class="section-placeholder">
+                <h3>Click one of the buttons above to see a comparison below.</h3>
             </div>
+            {Object.values(compare).map(c => (
+            <div id={c.slug} class="section-content detail hidden">
+                <div class="section-image">
+                    <img src={c.image} alt={c.title} />
+                </div>
+                <div class="section-text">
+                    <p>{c.description}</p>
+                    <p>{c.examples}</p>
+                </div>
+            </div>
+            ))}
         </div>
     </section>
+    <section id="table" class="section">
+        <table>
+            <thead>
+                <tr>
+                    <th class="category empty"></th>
+                    <th class="factor empty"></th>
+                    <th class="comp title"><h3>{select != "" ? selected?.title : ""}</h3></th>
+                    <th class="rs title"><h3>RamoSites</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+            {factors.map(category =>
+            category.contents.map((factor, index) => {
+            if (index === 0) {
+                return (
+                <tr>
+                <td class="category" rowspan={category.count}>
+                    <h4>{category.title}</h4>
+                </td>
+                <td class="factor">
+                    <h5>{factor.title}</h5>
+                    <p>{factor.text}</p>
+                </td>
+                <td class="comp">
+                    <p>{select !== "" ? selectedFactors[factor.key] : ""}</p>
+                </td>
+                <td class="rs">
+                    <p>{rscomp[factor.key as keyof typeof rscomp]}</p>
+                </td>
+                </tr>
+                );
+            } else {
+                return (
+                <tr>
+                <td class="factor">
+                    <h5>{factor.title}</h5>
+                    <p>{factor.text}</p>
+                </td>
+                <td class="comp">
+                    <p>{select !== "" ? selectedFactors[factor.key] : ""}</p>
+                </td>
+                <td class="rs">
+                    <p>{rscomp[factor.key as keyof typeof rscomp]}</p>
+                </td>
+                </tr>
+                );
+            }}))}
+            </tbody>
+        </table>
+    </section>
+    <CTA title="Get Started!">
+        <span slot="content">Ready to get started building your dreams? <br />Fill out the form today!</span>
+        <Button slot="buttons" type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
+    </CTA>
 </Layout>
 
 <style>
     .section-content {
         text-align: center;
     }
+    #buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3em;
+    }
+    #detail .section-container {
+        background-color: var(--gray-contrast);
+        border: 1px solid var(--gray-mid);
+        border-radius: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        padding: 1.5em;
+        margin: 1.5em auto 4em;
+        min-height: 11em;
+    }
+    #detail .section-content .section-image {
+        width: 20%;
+    }
+    #detail .section-content .section-image img {
+        width: 100%;
+        height: auto;
+    }
+    #detail .section-content .section-text {
+        width: 75%;
+        text-align: justify;
+    }
+    #detail .section-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #detail .section-content.hidden {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    th, td {
+        border: 1px solid var(--gray-mid);
+        padding: .5em;
+    }
+    th {
+        text-align: center;
+    }
+    table h4 {
+        font-size: 1em;
+        font-weight: 700;
+    }
+    table h5 {
+        font-size: .9em;
+        font-weight: 700;
+    }
+    table p {
+        font-size: .8em;
+    }
+    .empty {
+        border: none;
+        background-color: transparent !important;
+    }
+    .title {
+        padding: 1.5em 0;
+    }
+    .category {
+        writing-mode: vertical-rl; /* Makes the text vertical */
+        text-align: center;
+        transform: rotate(180deg); /* Rotates the text 180 degrees to make it upright */
+        width: 4%;
+        white-space: nowrap;
+    }
+    .factor {
+        width: 22%;
+        background-color: var(--gray-contrast);
+    }
+    .rs, .comp {
+        width: 37%;
+    }
+    .rs {
+        background-color: color-mix(in oklab, var(--primary) 25%, var(--background));
+    }
+    .comp {
+        background-color: color-mix(in oklab, var(--secondary) 25%, var(--background));
+    }
 </style>
+
+<script>
+
+</script>

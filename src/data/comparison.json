@@ -1,0 +1,94 @@
+[
+    {
+        "title": "Site Builders",
+        "slug": "sb",
+        "image": "site-builders.svg",
+        "description": "DIY platforms like Wix and Squarespace that make it easy to create a site without coding. They are particularly popular for their simplicity and drag-and-drop editors, though they can lack advanced customization options.",
+        "examples": "Examples: Wix, Squarespace",
+        "factors": {
+            "customization": "Limited customization options restricted to templates, which may not fully align with unique brand requirements or specific design needs.",
+            "ease-of-use": "Extremely easy for beginners due to intuitive drag-and-drop interfaces, but lacks depth and flexibility for advanced users or larger-scale projects.",
+            "accessibility": "Accessibility often overlooked, requiring manual effort to comply with standards, which can lead to a suboptimal experience for users with disabilities.",
+            "up-front-costs": "Low upfront costs make it an attractive choice for startups and small businesses, but may increase with added features or premium plans.",
+            "ongoing-costs": "Monthly subscription fees accumulate over time and can become a significant expense compared to self-hosted alternatives.",
+            "value-for-money": "Affordable initially but often feels restrictive as needs grow, potentially necessitating migration to a more robust platform.",
+            "performance": "Performance varies based on platform limitations and can be influenced by template complexity or third-party plugins.",
+            "security": "Basic security measures are provided but vulnerabilities can arise, particularly with outdated templates or plugins.",
+            "scalability": "Limited scalability; businesses often outgrow these platforms and require more customizable or powerful solutions.",
+            "features-integrations": "Limited integrations compared to custom-built solutions, often requiring workarounds for advanced functionalities.",
+            "support-maintenance": "Support is available but often generalized and not tailored to specific or complex user issues.",
+            "workload": "DIY nature demands significant input and time from the user, especially during setup and initial design phases.",
+            "development-time": "Quick to set up basic sites but may take longer to achieve a polished and professional look.",
+            "ownership": "You don’t fully own your site; content and structure are tied to the platform and cannot be transferred easily."
+        }
+    },
+    {
+        "title": "Freelancers",
+        "slug": "fr",
+        "image": "freelancers.svg",
+        "description": "Independent professionals who design and develop custom websites. They can offer a personalized touch and adaptability but vary widely in expertise and reliability.",
+        "examples": "Examples: Local freelancers, platforms like Upwork",
+        "factors": {
+            "customization": "Can provide high customization based on their skills and creativity, enabling unique designs tailored to business needs.",
+            "ease-of-use": "Depends on the freelancer; some prioritize intuitive user interfaces, while others may deliver complex designs that require additional training.",
+            "accessibility": "Varies; some freelancers prioritize accessibility, while others may not adhere to standards, leading to potential compliance issues.",
+            "up-front-costs": "Moderate to high initial costs, reflecting the custom nature of the work and the freelancer’s expertise level.",
+            "ongoing-costs": "Additional fees may arise for updates, maintenance, or unforeseen revisions post-launch.",
+            "value-for-money": "Value depends on the freelancer’s skills, reliability, and ability to meet project goals effectively and efficiently.",
+            "performance": "Performance quality depends heavily on the freelancer’s technical knowledge and adherence to best practices.",
+            "security": "Relies on the freelancer’s awareness and implementation of modern security measures, which can vary significantly.",
+            "scalability": "Can scale with the business, but ongoing engagement with the freelancer is often necessary for significant changes.",
+            "features-integrations": "Custom features and integrations can be included, but may require extra time and cost depending on complexity.",
+            "support-maintenance": "Limited; ongoing support usually requires re-hiring the freelancer, which can delay urgent updates.",
+            "workload": "Low workload for the client after the initial requirements are provided, as the freelancer handles development.",
+            "development-time": "Varies widely; complex projects can take weeks to months depending on the freelancer’s availability and scope.",
+            "ownership": "Ownership is negotiable but typically belongs to the client, ensuring long-term control over the site."
+        }
+    },
+    {
+        "title": "Agencies",
+        "slug": "ag",
+        "image": "agencies.svg",
+        "description": "Professional firms with teams of designers, developers, and project managers. They offer comprehensive services but often come with higher costs and extended timelines.",
+        "examples": "Examples: Large-scale web development agencies",
+        "factors": {
+            "customization": "Highly customizable, often delivering bespoke designs and advanced features tailored to complex needs.",
+            "ease-of-use": "Typically user-friendly with professional admin tools designed for efficient site management post-launch.",
+            "accessibility": "Accessibility standards are usually adhered to, but thorough audits or additional steps may be required for full compliance.",
+            "up-front-costs": "High up-front costs due to extensive planning, project management, and professional execution.",
+            "ongoing-costs": "Maintenance plans are offered but come at a premium, often including comprehensive support.",
+            "value-for-money": "High quality and reliability but cost-prohibitive for smaller businesses with limited budgets.",
+            "performance": "Typically excellent due to dedicated expertise and use of optimized technologies.",
+            "security": "Robust security measures are integrated as standard, often including advanced protections.",
+            "scalability": "Easily scalable, designed to grow alongside business needs and technological advancements.",
+            "features-integrations": "Advanced features and integrations are part of the standard offerings, enabling a highly functional site.",
+            "support-maintenance": "Dedicated support teams are often included, ensuring timely updates and issue resolution.",
+            "workload": "Minimal client workload as agencies handle everything from design to deployment and training.",
+            "development-time": "Usually takes months due to the detailed and collaborative approach required for large-scale projects.",
+            "ownership": "Ownership terms vary but usually allow the client to retain full rights, ensuring flexibility and control."
+        }
+    },
+    {
+        "title": "WordPress",
+        "slug": "wp",
+        "image": "wordpress.svg",
+        "description": "A highly popular CMS platform for building and managing websites. Known for its flexibility and extensive ecosystem of plugins and themes.",
+        "examples": "Examples: Self-hosted WordPress.org, Managed WordPress.com",
+        "factors": {
+            "customization": "Highly customizable, with virtually endless options for design and functionality when paired with coding knowledge.",
+            "ease-of-use": "Moderately easy but comes with a learning curve for beginners, especially when configuring advanced features.",
+            "accessibility": "Accessibility features depend heavily on the themes and plugins used; ensuring compliance may require careful selection and testing.",
+            "up-front-costs": "Low to moderate initial costs, typically covering hosting, premium themes, and essential plugins.",
+            "ongoing-costs": "Recurring costs for hosting, plugin licenses, and updates can add up over time but remain manageable.",
+            "value-for-money": "Good value for the flexibility it offers, though costs can increase with premium add-ons or custom development.",
+            "performance": "Performance varies based on hosting quality, plugin choices, and optimization efforts, which are crucial for high-traffic sites.",
+            "security": "Security requires active management, including regular updates, backups, and monitoring for vulnerabilities.",
+            "scalability": "Highly scalable with appropriate hosting and optimization, suitable for small blogs to enterprise-level sites.",
+            "features-integrations": "Extensive range of features and integrations via plugins, supporting diverse business needs.",
+            "support-maintenance": "Support is largely community-driven, though managed hosting services provide professional assistance.",
+            "workload": "Moderate; requires some involvement from the client for setup, updates, and ongoing management.",
+            "development-time": "Faster with templates but may take longer for custom builds or complex configurations.",
+            "ownership": "You retain full ownership of your site and its content when self-hosted, offering complete control and flexibility."
+        }
+    }
+]

@@ -6,7 +6,8 @@ import Solution from '../components/sections/Solution.astro';
 import Steps from '../components/sections/Process.astro';
 import Clients from '../components/sections/Clients.astro';
 import Questions from '../components/sections/Questions.astro';
-import Action from '../components/sections/Action.astro';
+import CTA from '../components/pieces/CTA.astro';
+import Button from '../components/Button.astro';
 
 import '../styles/section.css';
 ---
@@ -18,7 +19,11 @@ import '../styles/section.css';
 	<Steps />
 	<Clients />
 	<Questions />
-	<Action />
+	<CTA title="Tell Me More!">
+		<span slot="content">Want more details about RamoSites' services and pricing? <br />Click one of the buttons below!</span>
+		<Button slot="buttons" type="primary" icon="tabler:tools" link="/solutions" text="Solutions" />
+        <Button slot="buttons" type="primary" icon="tabler:scale" link="/compare" text="Compare" />
+	</CTA>
 </Layout>
 
 <style is:global>

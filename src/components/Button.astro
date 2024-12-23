@@ -7,11 +7,20 @@ interface Props {
     icon?: string;
     text: string;
 	window?: boolean;
+	idname?: string;
+	classname?: string;
 }
 
-const { type, link, icon, text, window } = Astro.props;
+const { type, link, icon, text, window, idname, classname } = Astro.props;
 ---
-<a href={link} class=`btn ${type}` target={ window ? "_blank" : "_self" }>{ icon ? <Icon name={icon} /> : null }{text}</a>
+<a
+	href={link}
+	id={idname ? idname : ""}
+	class={classname ? `btn ${type} ${classname}` : `btn ${type}`}
+	target={ window ? "_blank" : "_self" }
+>
+	{ icon ? <Icon name={icon} /> : null }{text}
+</a>
 
 <style is:global>
     .btn {

@@ -1,7 +1,11 @@
 ---
 import '../styles/section.css';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
+import Website from '../../assets/undraw_landing_page.svg';
+import Contract from '../../assets/undraw_online_learning.svg';
+import Subscribe from '../../assets/undraw_data_trends.svg';
 ---
 
 <Layout title="Solutions">
@@ -16,6 +20,11 @@ import Button from '../components/Button.astro';
         <div class="section-content">
             <h4>This page is under construction. Check back soon!</h4>
         </div>
+    </section>
+    <section>
+        <!-- <div class="section-image">
+            <Image src={Image3} alt="" />
+        </div> -->
     </section>
     <section id="action" class="section cta">
         <div class="section-container">
@@ -35,5 +44,9 @@ import Button from '../components/Button.astro';
 <style>
     .section-content {
         text-align: center;
+    }
+    .section-image img {
+        width: 100%;
+        height: auto;
     }
 </style>

@@ -1,0 +1,96 @@
+[
+    {
+        "title": "Services",
+        "count": 3,
+        "contents": [
+            {
+                "key": "customization",
+                "title": "Customization",
+                "text": "Level of customization allowed to match specific brand needs."
+            },
+            {
+                "key": "ease-of-use",
+                "title": "Ease of Use",
+                "text": "How easy the platform is to use for non-technical users."
+            },
+            {
+                "key": "accessibility",
+                "title": "Accessibility",
+                "text": "Support for web accessibility standards (e.g., WCAG)."
+            }
+        ]
+    },
+    {
+        "title": "Costs",
+        "count": 3,
+        "contents": [
+            {
+                "key": "up-front-costs",
+                "title": "Up-front Costs",
+                "text": "Initial costs required to set up a website."
+            },
+            {
+                "key": "ongoing-costs",
+                "title": "Ongoing Costs",
+                "text": "Recurring costs to maintain the website."
+            },
+            {
+                "key": "value-for-money",
+                "title": "Value for Money",
+                "text": "Overall value considering cost vs features and quality."
+            }
+        ]
+    },
+    {
+        "title": "Technical Aspects",
+        "count": 4,
+        "contents": [
+            {
+                "key": "performance",
+                "title": "Performance",
+                "text": "How well the site performs in terms of speed and responsiveness."
+            },
+            {
+                "key": "security",
+                "title": "Security",
+                "text": "Measures to ensure data protection and prevent hacking."
+            },
+            {
+                "key": "scalability",
+                "title": "Scalability",
+                "text": "Ability to grow or adapt the site as needs change."
+            },
+            {
+                "key": "features-integrations",
+                "title": "Features and Integrations",
+                "text": "Availability of advanced features and third-party integrations."
+            }
+        ]
+    },
+    {
+        "title": "Your Experience",
+        "count": 4,
+        "contents": [
+            {
+                "key": "support-maintenance",
+                "title": "Support and Maintenance",
+                "text": "Access to support and ongoing maintenance."
+            },
+            {
+                "key": "workload",
+                "title": "Workload",
+                "text": "Effort required from the client to get the site up and running."
+            },
+            {
+                "key": "development-time",
+                "title": "Development Time",
+                "text": "Time required to create a functional website."
+            },
+            {
+                "key": "ownership",
+                "title": "Ownership",
+                "text": "Who owns the site and its contents after it’s created."
+            }
+        ]
+    }
+]
