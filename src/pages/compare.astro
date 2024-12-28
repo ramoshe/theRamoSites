@@ -4,17 +4,11 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import CTA from '../components/pieces/CTA.astro';
 
-import factors from '../data/factors.json';
-import rscomp from '../data/rscomp.json';
 import compare from '../data/comparison.json';
-
-let select = "";
-let selected = compare.find(c => c.slug === select);
-let selectedFactors: any = selected?.factors;
 ---
 
 <Layout title="Compare">
-    <section id="" class="section top">
+    <section class="section top">
         <h3 class="section-heading">
             The Comparison
         </h3>
@@ -24,17 +18,22 @@ let selectedFactors: any = selected?.factors;
         <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </section>
     <section id="buttons" class="section">
-        <Button type="secondary" link="#" text="Site Builders" idname="sb" classname="choice" />
-        <Button type="secondary" link="#" text="Freelancers" idname="fl" classname="choice" />
-        <Button type="secondary" link="#" text="WordPress" idname="wp" classname="choice" />
-        <Button type="secondary" link="#" text="Agencies" idname="ag" classname="choice" />
+        {compare.map(c => (
+        <Button
+            type="secondary"
+            link="#!"
+            text={c.title}
+            idname={c.slug}
+            classname="choice"
+            data-slug={c.slug} />
+        ))}
     </section>
     <section id="detail" class="section">
         <div class="section-container">
-            <div class="section-placeholder">
+            <div class="section-content detail visible">
                 <h3>Click one of the buttons above to see a comparison below.</h3>
             </div>
-            {Object.values(compare).map(c => (
+            {compare.map(c => (
             <div id={c.slug} class="section-content detail hidden">
                 <div class="section-image">
                     <img src={c.image} alt={c.title} />
@@ -53,52 +52,17 @@ let selectedFactors: any = selected?.factors;
                 <tr>
                     <th class="category empty"></th>
                     <th class="factor empty"></th>
-                    <th class="comp title"><h3>{select != "" ? selected?.title : ""}</h3></th>
+                    <th id="selected-title" class="comp title"></th>
                     <th class="rs title"><h3>RamoSites</h3></th>
                 </tr>
             </thead>
-            <tbody>
-            {factors.map(category =>
-            category.contents.map((factor, index) => {
-            if (index === 0) {
-                return (
-                <tr>
-                <td class="category" rowspan={category.count}>
-                    <h4>{category.title}</h4>
-                </td>
-                <td class="factor">
-                    <h5>{factor.title}</h5>
-                    <p>{factor.text}</p>
-                </td>
-                <td class="comp">
-                    <p>{select !== "" ? selectedFactors[factor.key] : ""}</p>
-                </td>
-                <td class="rs">
-                    <p>{rscomp[factor.key as keyof typeof rscomp]}</p>
-                </td>
-                </tr>
-                );
-            } else {
-                return (
-                <tr>
-                <td class="factor">
-                    <h5>{factor.title}</h5>
-                    <p>{factor.text}</p>
-                </td>
-                <td class="comp">
-                    <p>{select !== "" ? selectedFactors[factor.key] : ""}</p>
-                </td>
-                <td class="rs">
-                    <p>{rscomp[factor.key as keyof typeof rscomp]}</p>
-                </td>
-                </tr>
-                );
-            }}))}
+            <tbody id="table-body">
+                <!-- Dynamic content will be inserted here -->
             </tbody>
         </table>
     </section>
     <CTA title="Get Started!">
-        <span slot="content">Ready to get started building your dreams? <br />Fill out the form today!</span>
+        <span slot="content">Ready to get started building your dreams?<br />Fill out the form today!</span>
         <Button slot="buttons" type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
     </CTA>
 </Layout>
@@ -117,7 +81,7 @@ let selectedFactors: any = selected?.factors;
     #detail .section-container {
         background-color: var(--gray-contrast);
         border: 1px solid var(--gray-mid);
-        border-radius: 14px;
+        border-radius: var(--border-radius);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -146,7 +110,9 @@ let selectedFactors: any = selected?.factors;
     #detail .section-content.hidden {
         display: none;
     }
+</style>
 
+<style is:inline>
     table {
         width: 100%;
         border-collapse: collapse;
@@ -175,7 +141,8 @@ let selectedFactors: any = selected?.factors;
         background-color: transparent !important;
     }
     .title {
-        padding: 1.5em 0;
+        padding: 1em 0;
+        font-size: 1.4em;
     }
     .category {
         writing-mode: vertical-rl; /* Makes the text vertical */
@@ -200,5 +167,93 @@ let selectedFactors: any = selected?.factors;
 </style>
 
 <script>
+    import factors from '../data/factors.json';
+    import compare from '../data/comparison.json';
+    import rscomp from '../data/rscomp.json';
 
+    const rs:any = rscomp;
+    const buttons:any = document.querySelectorAll('.choice');
+    const tableBody:any = document.querySelector('#table-body');
+
+    buttons.forEach((button:any) => {
+        button.addEventListener('click', (e:any) => {
+            const slug = e.target.id;
+            showDetail(slug);
+            fillTable(slug);
+            highlightButton(slug, e.target);
+        });
+    });
+
+    function highlightButton(slug:any, target:any) {
+        buttons.forEach((btn:any) => {
+            btn.classList.contains('primary') ? btn.classList.remove('primary') : null;
+            btn.classList.contains('secondary') ? null : btn.classList.add('secondary');
+        });
+        target.classList.remove('secondary');
+        target.classList.add('primary');
+    }
+
+    function showDetail(slug:any) {
+        document.querySelectorAll('.detail').forEach(el => {
+            el.classList.add('hidden');
+            el.classList.remove('visible');
+        });
+        const detail = document.querySelector(`#${slug}.detail`);
+        detail?.classList.remove('hidden');
+        detail?.classList.add('visible');
+    }
+
+    // Populate table with comparison column blank
+    factors.forEach(category => {
+        category.contents.forEach((factor, index) => {
+            // Create the table row
+            const row = document.createElement('tr');
+
+            // Add the category cell only for the first row of the category
+            if (index === 0) {
+                const categoryCell = document.createElement('td');
+                categoryCell.classList.add('category');
+                categoryCell.rowSpan = category.count;
+                categoryCell.innerHTML = `<h4>${category.title}</h4>`;
+                row.appendChild(categoryCell);
+            }
+
+            // Add the factor cell
+            const factorCell = document.createElement('td');
+            factorCell.classList.add('factor');
+            factorCell.innerHTML = `
+                <h5>${factor.title}</h5>
+                <p>${factor.text}</p>`;
+            row.appendChild(factorCell);
+
+            // Add the blank comp cell
+            const compCell = document.createElement('td');
+            compCell.classList.add('comp');
+            compCell.id = factor.key;
+            compCell.innerHTML = `<p></p>`; // Initially blank
+            row.appendChild(compCell);
+
+            // Add the rs cell
+            const rsCell = document.createElement('td');
+            rsCell.classList.add('rs');
+            rsCell.innerHTML = `<p>${rs[factor.key]}</p>`;
+            row.appendChild(rsCell);
+
+            // Append the row to the table body
+            tableBody.appendChild(row);
+        });
+    });
+
+    // populate the comparison column
+    function fillTable(slug:any) {
+        const selected:any = compare.find(c => c.slug === slug);
+        const selectedFactors = selected?.factors;
+        const selectedTitle:any = document.querySelector('#selected-title');
+        const comparisonCells = tableBody.querySelectorAll('.comp');
+
+        selectedTitle.innerHTML = selected.title;
+        comparisonCells.forEach((cell:any) => {
+            cell.innerHTML = `<p>${selectedFactors[cell.id]}</p>`;
+        });
+    }
 </script>

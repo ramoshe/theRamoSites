@@ -1,0 +1,35 @@
+---
+interface Props {
+	classname?: string;
+    price: string;
+    per: string;
+    text: string;
+    color: string;
+}
+
+const { classname, price, per, text, color } = Astro.props;
+---
+<div class=`card ${classname}`>
+    <p class="price">{price}</p>
+    <p class="per">{per}</p>
+    <p class="text">{text}</p>
+</div>
+
+<style define:vars={{color}}>
+    .card {
+        background-color: var(--color);
+        border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+    .price {
+        font-size: 1.2em;
+        font-weight: 800;
+    }
+    .text {
+        font-size: .9;
+    }
+</style>

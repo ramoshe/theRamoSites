@@ -1,11 +1,15 @@
 ---
 import '../styles/section.css';
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
-import Website from '../../assets/undraw_landing_page.svg';
-import Contract from '../../assets/undraw_online_learning.svg';
-import Subscribe from '../../assets/undraw_data_trends.svg';
+import PriceCard from '../components/pieces/PriceCard.astro';
+import CTA from '../components/pieces/CTA.astro';
+
+import { Icon } from "astro-icon";
+import { Image } from 'astro:assets';
+import Website from '../assets/undraw_landing_page.svg';
+import Contract from '../assets/undraw_online_learning.svg';
+import Subscribe from '../assets/undraw_data_trends.svg';
 ---
 
 <Layout title="Solutions">
@@ -17,28 +21,71 @@ import Subscribe from '../../assets/undraw_data_trends.svg';
             What are the Services & Pricing?
         </h2>
         <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+    <section id="website" class="section gray">
         <div class="section-content">
-            <h4>This page is under construction. Check back soon!</h4>
+            <h4 class="section-title">Website Design & Build</h4>
+            <p class="section-text"></p>
+            <Button type="primary" link="#!" text="Process Flowchart" />
+        </div>
+        <div class="section-image">
+            <Image src={Website} alt="Website Design & Build" />
+        </div>
+        <div class="section-pricing">
+            <PriceCard price="" per="" text="" color="" />
+            <Icon name="tabler:plus" />
+            <PriceCard price="" per="" text="" color="" />
+            <Icon name="tabler:plus" />
+            <PriceCard price="" per="" text="" color="" />
         </div>
     </section>
-    <section>
-        <!-- <div class="section-image">
-            <Image src={Image3} alt="" />
-        </div> -->
-    </section>
-    <section id="action" class="section cta">
-        <div class="section-container">
-            <h2 class="section-title">
-                Get Started!
-            </h2>
-            <p class="section-content">
-                Ready to get started building your dreams? <br />Fill out the form today!
-            </p>
-            <div class="content-buttons">
-                <Button type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
+    <section id="contract" class="section">
+        <div class="section-image">
+            <Image src={Contract} alt="Consult & Contract" />
+        </div>
+        <div class="section-content">
+            <h4 class="section-title">Consult & Contract</h4>
+            <p class="section-text"></p>
+            <div class="section-pricing">
+                <PriceCard price="" per="" text="" color="" />
+                <Button type="primary" link="" text="Book A Session" />
             </div>
         </div>
     </section>
+    <section id="subscribe" class="section gray">
+        <div class="section-content">
+            <h4 class="section-title">Analytics & Policies</h4>
+            <p class="section-text"></p>
+        </div>
+        <div class="section-image">
+            <Image src={Subscribe} alt="Analytics & Policies" />
+        </div>
+        <div class="section-pricing">
+            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="" per="" text="" color="" />
+        </div>
+    </section>
+    <section id="payment" class="section">
+        <div class="section-content">
+            <h4 class="section-title">Payment Methods</h4>
+            <p class="section-text"></p>
+        </div>
+        <div class="section-icons">
+            <Icon name="card-generic" />
+            <Icon name="paypal" />
+            <Icon name="cashapp" />
+            <Icon name="venmo" />
+            <Icon name="apple-pay" />
+            <Icon name="google-pay" />
+        </div>
+    </div>
+    </section>
+    <CTA title="Get Started!">
+        <span slot="content">Ready to get started building your dreams?<br />Fill out the form today!</span>
+        <Button slot="buttons" type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
+    </CTA>
 </Layout>
 
 <style>
