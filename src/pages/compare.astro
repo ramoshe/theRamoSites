@@ -274,7 +274,7 @@ import compare from '../data/comparison.json';
 
         selectedTitle.innerHTML = `<h3>${selected.title}</h3>`;
         comparisonCells.forEach((cell:any) => {
-            cell.innerHTML = `<p>${selectedFactors[cell.id]}</p>`;
+            cell.innerHTML = `<p class="comp-text">${selectedFactors[cell.id]}</p>`;
         });
     }
 </script>
