@@ -3,16 +3,15 @@ interface Props {
 	classname?: string;
     price: string;
     per: string;
-    text: string;
     color: string;
 }
 
-const { classname, price, per, text, color } = Astro.props;
+const { classname, price, per, color } = Astro.props;
 ---
 <div class=`card ${classname}`>
-    <p class="price">{price}</p>
+    <p class="price">${price}</p>
     <p class="per">{per}</p>
-    <p class="text">{text}</p>
+    <slot class="text" />
 </div>
 
 <style define:vars={{color}}>

@@ -29,6 +29,11 @@
 
     --background-color: var(--black);
     --text-color: var(--white);
+
+    --price-medium: var(--gray-mid);
+    --price-light: color-mix(in oklab, var(--gray-mid) 80%, var(--text));
+    --price-lighter: color-mix(in oklab, var(--gray-mid) 50%, var(--text));
+    --price-lightest: color-mix(in oklab, var(--gray-mid) 20%, var(--text));
 }
 [data-theme="light"]:root {
     --gray: #3D3A39;

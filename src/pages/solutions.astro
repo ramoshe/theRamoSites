@@ -2,8 +2,9 @@
 import '../styles/section.css';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
-import PriceCard from '../components/pieces/PriceCard.astro';
 import CTA from '../components/pieces/CTA.astro';
+import PriceCard from '../components/pieces/PriceCard.astro';
+import ProcessFlow from '../components/pieces/ProcessFlow.astro';
 
 import { Icon } from "astro-icon";
 import { Image } from 'astro:assets';
@@ -13,30 +14,38 @@ import Subscribe from '../assets/undraw_data_trends.svg';
 ---
 
 <Layout title="Solutions">
-    <section id="" class="section top">
+    <section id="intro" class="section top">
         <h3 class="section-heading">
             The Solutions
         </h3>
         <h2 class="section-title">
             What are the Services & Pricing?
         </h2>
-        <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="section-intro">Every service is designed to help you build a unique and impactful online presence for your business or brand. With a focus on tailored solutions, each project is customized to meet your specific needs and goals. Explore this page for detailed information and transparent pricing on all available services.</p>
     </section>
     <section id="website" class="section gray">
         <div class="section-content">
             <h4 class="section-title">Website Design & Build</h4>
-            <p class="section-text"></p>
-            <Button type="primary" link="#!" text="Process Flowchart" />
+            <p class="section-text">Whether you have an existing site you're looking to upgrade, or building for the first time, RamoSites has you covered. Timeline will vary based on project complexity, but turnarounds are typically 60-90 days.</p>
+            <p class="section-text">Pricing is flexible so you are paying for exactly what you need—no less, no more. Payments will be made in 4 installments (each 25% of the project total as written in the Contract) at key points in the workflow.</p>
+            <p class="section-text">To see a flowchart that outlines all the major steps in the process, click the button below.</p>
+            <ProcessFlow />
         </div>
         <div class="section-image">
             <Image src={Website} alt="Website Design & Build" />
         </div>
         <div class="section-pricing">
-            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="200" per="base fee" color="var(--price-lightest)">
+                <p>Covers all meetings and general project setup.</p>
+            </PriceCard>
             <Icon name="tabler:plus" />
-            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="100" per="per page" color="var(--price-lighter)">
+                <p>Add for Home and each additional page. Site structure and page requirements will be determined in initial meeting. Some features require pages.</p>
+            </PriceCard>
             <Icon name="tabler:plus" />
-            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="20-100" per="per extra feature" color="var(--price-light)">
+                <p>Examples include (but are definitely not limited to):<br /><br />Image/Video Gallery - <em>$20</em><br />Blog w/taxonomies - <em>$40</em><br />Custom Forms - <em>$80</em><br />E-Commerce - <em>$100</em><br />Subscriptions - <em>$100</em></p>
+            </PriceCard>
         </div>
     </section>
     <section id="contract" class="section">
@@ -45,32 +54,46 @@ import Subscribe from '../assets/undraw_data_trends.svg';
         </div>
         <div class="section-content">
             <h4 class="section-title">Consult & Contract</h4>
-            <p class="section-text"></p>
+            <p class="section-text">RamoSites offers a full range of services to help you build your online brand or business. The focus is always customizing</p>
+            <p class="section-text">Example Services: Branding, Content, Email Marketing, WordPress, Walkthrough/Training</p>
             <div class="section-pricing">
-                <PriceCard price="" per="" text="" color="" />
-                <Button type="primary" link="" text="Book A Session" />
+                <PriceCard price="30" per="per hour" color="">
+                    <p>Options for 1, 1.5, or 2 hour session. If we go over time, the balance will be billed at the end of session.</p>
+                </PriceCard>
+                <Button type="primary" link="https://app.squareup.com/appointments/book/idcjs437rsbhhb/LK93RM75F2SNS/start" text="Book A Session" window />
             </div>
         </div>
     </section>
     <section id="subscribe" class="section gray">
         <div class="section-content">
             <h4 class="section-title">Analytics & Policies</h4>
-            <p class="section-text"></p>
+            <p class="section-text">If you want to track website performance, or are utilizing features that require legal policies to be present on the site (i.e. collecting any info from users through forms, for memberships, e-commerce, etc.). These are the only RamoSites services with monthly fees.</p>
+            <p class="section-text">Service set up can be added to Website Design & Build, or initiated with a Consult & Contract session. You'll be able to change plans at any time.</p>
+            <p class="section-text">“Analytics access” means you'll be able to log in to the dashboard to browse all the stats. “Reports” mean that theRamoShe will email you a personalized analysis of your site's performance statistics.</p>
+            <p class="section-text">Legal Policies will automatically update to keep up to date with changing laws. You'll get a Privacy Policy, Cookie Policy, and Terms of Service.</p>
         </div>
         <div class="section-image">
             <Image src={Subscribe} alt="Analytics & Policies" />
         </div>
         <div class="section-pricing">
-            <PriceCard price="" per="" text="" color="" />
-            <PriceCard price="" per="" text="" color="" />
-            <PriceCard price="" per="" text="" color="" />
-            <PriceCard price="" per="" text="" color="" />
+            <PriceCard price="10" per="per month" color="">
+                <p>Legal Policies Only</p>
+        </PriceCard>
+            <PriceCard price="15" per="per month" color="">
+                <p>Legal Policies & Analytics access</p>
+        </PriceCard>
+            <PriceCard price="20" per="per month" color="">
+                <p>Legal Policies & Analytics access with Quarterly Reports</p>
+        </PriceCard>
+            <PriceCard price="30" per="per month" color="">
+                <p>Legal Policies & Analytics access with Monthly Reports</p>
+        </PriceCard>
         </div>
     </section>
     <section id="payment" class="section">
         <div class="section-content">
             <h4 class="section-title">Payment Methods</h4>
-            <p class="section-text"></p>
+            <p class="section-text">RamoSites accepts a variety of electronic payment methods for all services.</p>
         </div>
         <div class="section-icons">
             <Icon name="card-generic" />
@@ -80,7 +103,6 @@ import Subscribe from '../assets/undraw_data_trends.svg';
             <Icon name="apple-pay" />
             <Icon name="google-pay" />
         </div>
-    </div>
     </section>
     <CTA title="Get Started!">
         <span slot="content">Ready to get started building your dreams?<br />Fill out the form today!</span>
@@ -89,11 +111,59 @@ import Subscribe from '../assets/undraw_data_trends.svg';
 </Layout>
 
 <style>
+    .section.top {
+        margin-bottom: 4em;
+    }
+    .section:not(.top):not(#payment) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .section:not(.top):not(.gray) {
+        padding: 4em 0;
+    }
     .section-content {
-        text-align: center;
+        width: 55%;
+    }
+    .section-image {
+        width: 35%;
     }
     .section-image img {
         width: 100%;
         height: auto;
+    }
+    .section:not(.top, #payment) .section-title {
+        text-align: left;
+    }
+    .section:not(.top) .section-title {
+        margin-bottom: .5em;
+    }
+    .section-content p {
+        margin-bottom: 1em;
+    }
+    .section-pricing {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #website .section-pricing svg {
+        width: 50px;
+        height: auto;
+    }
+    #payment .section-content {
+        width: 100%;
+        text-align: center;
+    }
+    #payment .section-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 3em 0;
+    }
+    #payment .section-icons svg {
+        height: 70px;
+        width: auto;
     }
 </style>
