@@ -48,7 +48,7 @@
             {
                 "key": "performance",
                 "title": "Performance",
-                "text": "How well the site performs in terms of speed and responsiveness."
+                "text": "How the site performs in terms of speed and responsiveness."
             },
             {
                 "key": "security",
@@ -62,7 +62,7 @@
             },
             {
                 "key": "features-integrations",
-                "title": "Features and Integrations",
+                "title": "Features & Integrations",
                 "text": "Availability of advanced features and third-party integrations."
             }
         ]
@@ -73,8 +73,8 @@
         "contents": [
             {
                 "key": "support-maintenance",
-                "title": "Support and Maintenance",
-                "text": "Access to support and ongoing maintenance."
+                "title": "Support & Maintenance",
+                "text": "Access to support for building and ongoing maintenance."
             },
             {
                 "key": "workload",
@@ -84,12 +84,12 @@
             {
                 "key": "development-time",
                 "title": "Development Time",
-                "text": "Time required to create a functional website."
+                "text": "Time required to learn platform and create a functional website."
             },
             {
                 "key": "ownership",
                 "title": "Ownership",
-                "text": "Who owns the site and its contents after it’s created."
+                "text": "Who owns the site and its contents after it's created."
             }
         ]
     }

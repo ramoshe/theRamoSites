@@ -13,9 +13,9 @@ import compare from '../data/comparison.json';
             The Comparison
         </h3>
         <h2 class="section-title">
-            How does RamoSites stack up?
+            What makes Ramo better than Them?
         </h2>
-        <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="section-intro">Choosing the right web design service can be frustrating, but the search ends here. This comparison shows how RamoSites stands out in service, cost, performance, and user experience. Whether it's speed, security, or an intuitive design, everything you need is covered.</p>
     </section>
     <section id="buttons" class="section">
         {compare.map(c => (
@@ -39,8 +39,8 @@ import compare from '../data/comparison.json';
                     <img src={c.image} alt={c.title} />
                 </div>
                 <div class="section-text">
-                    <p>{c.description}</p>
-                    <p>{c.examples}</p>
+                    <p class="detail-description">{c.description}</p>
+                    <p class="detail-example">{c.examples}</p>
                 </div>
             </div>
             ))}
@@ -87,9 +87,9 @@ import compare from '../data/comparison.json';
         justify-content: center;
         align-items: center;
         max-width: 1000px;
-        padding: 1.5em;
+        padding: 1.5em 2em;
         margin: 1.5em auto 4em;
-        min-height: 11em;
+        min-height: 14em;
     }
     #detail .section-content .section-image {
         width: 20%;
@@ -100,7 +100,7 @@ import compare from '../data/comparison.json';
     }
     #detail .section-content .section-text {
         width: 75%;
-        text-align: justify;
+        text-align: left;
     }
     #detail .section-content {
         display: flex;
@@ -110,6 +110,12 @@ import compare from '../data/comparison.json';
     #detail .section-content.hidden {
         display: none;
     }
+    .detail-description {
+        margin-bottom: 1em;
+    }
+    .detail-example {
+        margin-bottom: .5em;
+    }
 </style>
 
 <style is:inline>
@@ -118,30 +124,30 @@ import compare from '../data/comparison.json';
         border-collapse: collapse;
         table-layout: fixed;
     }
-    th, td {
+    td, th {
         border: 1px solid var(--gray-mid);
         padding: .5em;
-    }
-    th {
-        text-align: center;
-    }
-    table h4 {
-        font-size: 1em;
-        font-weight: 700;
-    }
-    table h5 {
-        font-size: .9em;
-        font-weight: 700;
-    }
-    table p {
-        font-size: .8em;
     }
     .empty {
         border: none;
         background-color: transparent !important;
     }
+    .category-title {
+        font-size: 1em;
+        font-weight: 700;
+    }
+    .factor-title {
+        font-size: .9em;
+        font-weight: 800;
+    }
+    .factor-text {
+        font-size: .7em;
+    }
+    .comp-text, .rs-text {
+        font-size: .8em;
+    }
     .title {
-        padding: 1em 0;
+        padding: 1em;
         font-size: 1.4em;
     }
     .category {
@@ -164,6 +170,21 @@ import compare from '../data/comparison.json';
     .comp {
         background-color: color-mix(in oklab, var(--secondary) 25%, var(--background));
     }
+
+    @media (max-width: 800px) {
+        .title {
+            font-size: 1.1em;
+        }
+        .factor-category {
+            font-size: .7em;
+        }
+        .factor-title {
+            font-size: .7em;
+        }
+        table p {
+            font-size: .7em;
+        }
+    }
 </style>
 
 <script>
@@ -175,16 +196,58 @@ import compare from '../data/comparison.json';
     const buttons:any = document.querySelectorAll('.choice');
     const tableBody:any = document.querySelector('#table-body');
 
+    // Populate table with comparison column blank
+    factors.forEach(category => {
+        category.contents.forEach((factor, index) => {
+            // Create the table row
+            const row = document.createElement('tr');
+
+            // Add the category cell only for the first row of the category
+            if (index === 0) {
+                const categoryCell = document.createElement('td');
+                categoryCell.classList.add('category');
+                categoryCell.rowSpan = category.count;
+                categoryCell.innerHTML = `<h4 class="factor-category">${category.title}</h4>`;
+                row.appendChild(categoryCell);
+            }
+
+            // Add the factor cell
+            const factorCell = document.createElement('td');
+            factorCell.classList.add('factor');
+            factorCell.innerHTML = `
+            <h5 class="factor-title">${factor.title}</h5>
+            <p class="factor-text">${factor.text}</p>`;
+            row.appendChild(factorCell);
+
+            // Add the blank comp cell
+            const compCell = document.createElement('td');
+            compCell.classList.add('comp');
+            compCell.id = factor.key;
+            compCell.innerHTML = `<p class="comp-text"></p>`; // Initially blank
+            row.appendChild(compCell);
+
+            // Add the rs cell
+            const rsCell = document.createElement('td');
+            rsCell.classList.add('rs');
+            rsCell.innerHTML = `<p class="rs-text">${rs[factor.key]}</p>`;
+            row.appendChild(rsCell);
+
+            // Append the row to the table body
+            tableBody.appendChild(row);
+        });
+    });
+
+    // Add functionality to buttons
     buttons.forEach((button:any) => {
         button.addEventListener('click', (e:any) => {
             const slug = e.target.id;
             showDetail(slug);
             fillTable(slug);
-            highlightButton(slug, e.target);
+            highlightButton(e.target);
         });
     });
 
-    function highlightButton(slug:any, target:any) {
+    function highlightButton(target:any) {
         buttons.forEach((btn:any) => {
             btn.classList.contains('primary') ? btn.classList.remove('primary') : null;
             btn.classList.contains('secondary') ? null : btn.classList.add('secondary');
@@ -203,55 +266,13 @@ import compare from '../data/comparison.json';
         detail?.classList.add('visible');
     }
 
-    // Populate table with comparison column blank
-    factors.forEach(category => {
-        category.contents.forEach((factor, index) => {
-            // Create the table row
-            const row = document.createElement('tr');
-
-            // Add the category cell only for the first row of the category
-            if (index === 0) {
-                const categoryCell = document.createElement('td');
-                categoryCell.classList.add('category');
-                categoryCell.rowSpan = category.count;
-                categoryCell.innerHTML = `<h4>${category.title}</h4>`;
-                row.appendChild(categoryCell);
-            }
-
-            // Add the factor cell
-            const factorCell = document.createElement('td');
-            factorCell.classList.add('factor');
-            factorCell.innerHTML = `
-                <h5>${factor.title}</h5>
-                <p>${factor.text}</p>`;
-            row.appendChild(factorCell);
-
-            // Add the blank comp cell
-            const compCell = document.createElement('td');
-            compCell.classList.add('comp');
-            compCell.id = factor.key;
-            compCell.innerHTML = `<p></p>`; // Initially blank
-            row.appendChild(compCell);
-
-            // Add the rs cell
-            const rsCell = document.createElement('td');
-            rsCell.classList.add('rs');
-            rsCell.innerHTML = `<p>${rs[factor.key]}</p>`;
-            row.appendChild(rsCell);
-
-            // Append the row to the table body
-            tableBody.appendChild(row);
-        });
-    });
-
-    // populate the comparison column
     function fillTable(slug:any) {
         const selected:any = compare.find(c => c.slug === slug);
         const selectedFactors = selected?.factors;
         const selectedTitle:any = document.querySelector('#selected-title');
         const comparisonCells = tableBody.querySelectorAll('.comp');
 
-        selectedTitle.innerHTML = selected.title;
+        selectedTitle.innerHTML = `<h3>${selected.title}</h3>`;
         comparisonCells.forEach((cell:any) => {
             cell.innerHTML = `<p>${selectedFactors[cell.id]}</p>`;
         });
