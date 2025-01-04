@@ -35,16 +35,19 @@ import Subscribe from '../assets/undraw_data_trends.svg';
             <Image src={Website} alt="Website Design & Build" />
         </div>
         <div class="section-pricing">
-            <PriceCard price="200" per="base fee" color="var(--price-lightest)">
-                <p>Covers all meetings and general project setup.</p>
+            <PriceCard price="200" per="base fee" color="light" plus>
+                <p>Covers all meetings, general project setup and Home page.</p>
             </PriceCard>
-            <Icon name="tabler:plus" />
-            <PriceCard price="100" per="per page" color="var(--price-lighter)">
-                <p>Add for Home and each additional page. Site structure and page requirements will be determined in initial meeting. Some features require pages.</p>
+            <PriceCard price="100" per="per page" color="lighter" plus>
+                <p>Add for each additional page as desired. Page count will be set in contract. Some features will require their own pages.</p>
             </PriceCard>
-            <Icon name="tabler:plus" />
-            <PriceCard price="20-100" per="per extra feature" color="var(--price-light)">
-                <p>Examples include (but are definitely not limited to):<br /><br />Image/Video Gallery - <em>$20</em><br />Blog w/taxonomies - <em>$40</em><br />Custom Forms - <em>$80</em><br />E-Commerce - <em>$100</em><br />Subscriptions - <em>$100</em></p>
+            <PriceCard price="20-100" per="per extra feature" color="lightest">
+                <p><b>Examples include</b><br /><i>(but are definitely not limited to):</i></p>
+                <p>Image/Video Gallery - <b>$20</b></p>
+                <p>Blog w/taxonomies - <b>$40</b></p>
+                <p>Custom Forms - <b>$80</b></p>
+                <p>E-Commerce - <b>$100</b></p>
+                <p>Subscriptions - <b>$100</b></p>
             </PriceCard>
         </div>
     </section>
@@ -57,10 +60,10 @@ import Subscribe from '../assets/undraw_data_trends.svg';
             <p class="section-text">RamoSites offers a full range of services to help you build your online brand or business. The focus is always customizing</p>
             <p class="section-text">Example Services: Branding, Content, Email Marketing, WordPress, Walkthrough/Training</p>
             <div class="section-pricing">
-                <PriceCard price="30" per="per hour" color="">
+                <PriceCard price="25" per="per hour" color="lighter">
                     <p>Options for 1, 1.5, or 2 hour session. If we go over time, the balance will be billed at the end of session.</p>
                 </PriceCard>
-                <Button type="primary" link="https://app.squareup.com/appointments/book/idcjs437rsbhhb/LK93RM75F2SNS/start" text="Book A Session" window />
+                <Button type="primary" idname="booking" link="https://app.squareup.com/appointments/book/idcjs437rsbhhb/LK93RM75F2SNS/start" text="Book A Session" window />
             </div>
         </div>
     </section>
@@ -69,25 +72,23 @@ import Subscribe from '../assets/undraw_data_trends.svg';
             <h4 class="section-title">Analytics & Policies</h4>
             <p class="section-text">If you want to track website performance, or are utilizing features that require legal policies to be present on the site (i.e. collecting any info from users through forms, for memberships, e-commerce, etc.). These are the only RamoSites services with monthly fees.</p>
             <p class="section-text">Service set up can be added to Website Design & Build, or initiated with a Consult & Contract session. You'll be able to change plans at any time.</p>
-            <p class="section-text">“Analytics access” means you'll be able to log in to the dashboard to browse all the stats. “Reports” mean that theRamoShe will email you a personalized analysis of your site's performance statistics.</p>
-            <p class="section-text">Legal Policies will automatically update to keep up to date with changing laws. You'll get a Privacy Policy, Cookie Policy, and Terms of Service.</p>
         </div>
         <div class="section-image">
             <Image src={Subscribe} alt="Analytics & Policies" />
         </div>
         <div class="section-pricing">
-            <PriceCard price="10" per="per month" color="">
-                <p>Legal Policies Only</p>
-        </PriceCard>
-            <PriceCard price="15" per="per month" color="">
-                <p>Legal Policies & Analytics access</p>
-        </PriceCard>
-            <PriceCard price="20" per="per month" color="">
-                <p>Legal Policies & Analytics access with Quarterly Reports</p>
-        </PriceCard>
-            <PriceCard price="30" per="per month" color="">
-                <p>Legal Policies & Analytics access with Monthly Reports</p>
-        </PriceCard>
+            <PriceCard price="40" per="one time fee" color="light" plus>
+                <p>Covers set up for any services.</p>
+            </PriceCard>
+            <PriceCard price="10" per="per month" color="light" plus>
+                <p>Includes Privacy & Cookie Policies, and Terms of Service if needed.</p>
+            </PriceCard>
+            <PriceCard price="5" per="per month" color="lightest" plus>
+                <p>Analytics Dashboard built into your website backend.</p>
+            </PriceCard>
+            <PriceCard price="10" per="per month" color="lightest">
+                <p>Quarterly Analytics Reports written by Ramo with actionable insignts.</p>
+            </PriceCard>
         </div>
     </section>
     <section id="payment" class="section">
@@ -145,12 +146,16 @@ import Subscribe from '../assets/undraw_data_trends.svg';
     .section-pricing {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 2em;
+    }
+    #contract .section-pricing {
         align-items: center;
     }
 
-    #website .section-pricing svg {
-        width: 50px;
-        height: auto;
+    #flowchart {
+        margin: 0 auto;
     }
     #payment .section-content {
         width: 100%;

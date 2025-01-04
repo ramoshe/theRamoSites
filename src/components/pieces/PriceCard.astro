@@ -1,34 +1,54 @@
 ---
+import { Icon } from "astro-icon";
+
 interface Props {
 	classname?: string;
     price: string;
     per: string;
     color: string;
+    plus?: boolean;
 }
-
-const { classname, price, per, color } = Astro.props;
+const { classname, price, per, color, plus } = Astro.props;
 ---
-<div class=`card ${classname}`>
+<div class=`card ${color} ${classname}`>
     <p class="price">${price}</p>
     <p class="per">{per}</p>
-    <slot class="text" />
+    <span class="text"><slot /></span>
 </div>
+{plus ? <div class="plus-icon"><Icon name="tabler:plus" /></div> : null}
 
-<style define:vars={{color}}>
+<style>
+    .medium { background-color: var(--gray-mid); }
+    .light { background-color: color-mix(in oklab, var(--gray-mid) 80%, var(--text-color)); }
+    .lighter { background-color: color-mix(in oklab, var(--gray-mid) 50%, var(--text-color)); }
+    .lightest { background-color: color-mix(in oklab, var(--gray-mid) 20%, var(--text-color)); }
     .card {
-        background-color: var(--color);
+        color: var(--background-color);
         border-radius: var(--border-radius);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 1em;
+        padding: 1.5em 2em;
+        max-width: 350px;
+        text-align: center;
+        flex-basis: 100%;
     }
     .price {
         font-size: 1.2em;
         font-weight: 800;
     }
+    .per {
+        margin-bottom: 1em;
+    }
     .text {
-        font-size: .9;
+        font-size: .8em;
+    }
+    .plus-icon {
+        margin: 4em 1em;
+    }
+    .plus-icon svg {
+        width: 40px;
+        height: auto;
     }
 </style>
