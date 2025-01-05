@@ -23,13 +23,14 @@ import Subscribe from '../assets/undraw_data_trends.svg';
         </h2>
         <p class="section-intro">Every service is designed to help you build a unique and impactful online presence for your business or brand. With a focus on tailored solutions, each project is customized to meet your specific needs and goals. Explore this page for detailed information and transparent pricing on all available services.</p>
     </section>
+<!-- WEBSITE DESIGN & BUILD -->
     <section id="website" class="section gray">
         <div class="section-content">
             <h4 class="section-title">Website Design & Build</h4>
             <p class="section-text">Whether you have an existing site you're looking to upgrade, or building for the first time, RamoSites has you covered. Timeline will vary based on project complexity, but turnarounds are typically 60-90 days.</p>
             <p class="section-text">Pricing is flexible so you are paying for exactly what you need—no less, no more. Payments will be made in 4 installments (each 25% of the project total as written in the Contract) at key points in the workflow.</p>
             <p class="section-text">To see a flowchart that outlines all the major steps in the process, click the button below.</p>
-            <ProcessFlow />
+            <Button type="primary" link="#!" text="Process Flowchart" idname="flowchart" />
         </div>
         <div class="section-image">
             <Image src={Website} alt="Website Design & Build" />
@@ -51,6 +52,7 @@ import Subscribe from '../assets/undraw_data_trends.svg';
             </PriceCard>
         </div>
     </section>
+<!-- CONSULT & CONTRACT -->
     <section id="contract" class="section">
         <div class="section-image">
             <Image src={Contract} alt="Consult & Contract" />
@@ -63,10 +65,11 @@ import Subscribe from '../assets/undraw_data_trends.svg';
                 <PriceCard price="25" per="per hour" color="lighter">
                     <p>Options for 1, 1.5, or 2 hour session. If we go over time, the balance will be billed at the end of session.</p>
                 </PriceCard>
-                <Button type="primary" idname="booking" link="https://app.squareup.com/appointments/book/idcjs437rsbhhb/LK93RM75F2SNS/start" text="Book A Session" window />
+                <Button type="primary" idname="booking" link="https://app.squareup.com/appointments/buyer/widget/b0okwnpqhl5j7v/LK93RM75F2SNS" text="Book A Session" window />
             </div>
         </div>
     </section>
+<!-- ANALYTICS & POLICIES -->
     <section id="subscribe" class="section gray">
         <div class="section-content">
             <h4 class="section-title">Analytics & Policies</h4>
@@ -81,16 +84,19 @@ import Subscribe from '../assets/undraw_data_trends.svg';
                 <p>Covers set up for any services.</p>
             </PriceCard>
             <PriceCard price="10" per="per month" color="light" plus>
-                <p>Includes Privacy & Cookie Policies, and Terms of Service if needed.</p>
+                <p>Includes Privacy Policy, Cookie Policy, and Terms of Service as needed.</p>
             </PriceCard>
             <PriceCard price="5" per="per month" color="lightest" plus>
-                <p>Analytics Dashboard built into your website backend.</p>
+                <p><b><i>OPTIONAL:</i></b></p>
+                <p>Analytics Dashboard built into website backend to view stats.</p>
             </PriceCard>
             <PriceCard price="10" per="per month" color="lightest">
-                <p>Quarterly Analytics Reports written by Ramo with actionable insignts.</p>
+                <p><b><i>OPTIONAL:</i></b></p>
+                <p>Quarterly Analytics Report emails with actionable insights written by Ramo.</p>
             </PriceCard>
         </div>
     </section>
+<!-- PAYMENT METHODS -->
     <section id="payment" class="section">
         <div class="section-content">
             <h4 class="section-title">Payment Methods</h4>
@@ -110,6 +116,7 @@ import Subscribe from '../assets/undraw_data_trends.svg';
         <Button slot="buttons" type="primary" icon="tabler:arrow-big-right-line" link="/start" text="Get Started" />
     </CTA>
 </Layout>
+<ProcessFlow slot="bodybottom" />
 
 <style>
     .section.top {
@@ -148,15 +155,13 @@ import Subscribe from '../assets/undraw_data_trends.svg';
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
-        margin-top: 2em;
+        margin-top: 4em;
     }
     #contract .section-pricing {
         align-items: center;
     }
 
-    #flowchart {
-        margin: 0 auto;
-    }
+
     #payment .section-content {
         width: 100%;
         text-align: center;
@@ -170,5 +175,10 @@ import Subscribe from '../assets/undraw_data_trends.svg';
     #payment .section-icons svg {
         height: 70px;
         width: auto;
+    }
+</style>
+<style is:inline>
+    #flowchart {
+        margin: 2em auto 0;
     }
 </style>

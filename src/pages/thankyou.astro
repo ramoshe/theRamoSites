@@ -2,8 +2,9 @@
 import '../styles/section.css';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
-import { Image } from 'astro:assets';
+import CTA from '../components/pieces/CTA.astro';
 
+import { Image } from 'astro:assets';
 import ThanksImage from '../assets/undraw_appreciation.svg';
 ---
 
@@ -17,8 +18,7 @@ import ThanksImage from '../assets/undraw_appreciation.svg';
                 You've just taken the first step toward making your website dreams come true! theRamoShe will be in touch very shortly to schedule your inital consult appontment! In the meantime, scroll down to take a look at some next steps you can take to prepare.
             </p>
             <div class="thanks-buttons">
-                <Button type="primary" link="#next" icon="tabler:arrow-big-right-lines" text="Next Steps" />
-                <Button type="secondary" link="/" text="Back to Home" />
+                <Button type="primary" idname="booking" link="https://app.squareup.com/appointments/buyer/widget/t1wixfgf35ntau/LK93RM75F2SNS" text="Book Your Meeting" window />
             </div>
         </div>
         <div class="content-image">
@@ -72,22 +72,10 @@ import ThanksImage from '../assets/undraw_appreciation.svg';
             </ul>
         </div>
     </section>
-    <section id="booking" class="section">
-        <!-- https://app.squareup.com/appointments/book/idcjs437rsbhhb/LK93RM75F2SNS/start -->
-    </section>
-    <section id="more" class="section cta">
-        <div class="section-container">
-            <h2 class="section-title">
-                Learn more about theRamoShe
-            </h2>
-            <p class="section-content">
-                Rachel is a designer, developer, streamer, and wood burning artist. <br />Check out her links and works on her website!
-            </p>
-            <div class="content-buttons">
-                <Button type="primary" link="https://theramoshe.com" window icon="tabler:arrow-big-right-lines" text="Go To theRamoShe.com" />
-            </div>
-        </div>
-    </section>
+    <CTA title="Learn more about theRamoShe">
+        <span slot="content">Rachel is a designer, developer, streamer, and wood burning artist.<br />Check out her links and works on her website!</span>
+        <Button slot="buttons" type="primary" icon="tabler:arrow-big-right-line" link="https://theramoshe.com" text="Go To theRamoShe.com" />
+    </CTA>
 </Layout>
 <style>
     ul { padding: 0; }

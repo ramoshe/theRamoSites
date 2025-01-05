@@ -1,25 +1,58 @@
 ---
-import Button from "../Button.astro";
-
+import { Icon } from "astro-icon";
+import { Image } from 'astro:assets';
+import flowchartImg from '../../assets/process-flowchart.png';
 ---
-
-<Button type="primary" link="#!" text="Process Flowchart" idname="flowchart" />
-
 <div id="popup-container">
-    <!-- close control -->
-    <!-- chart image -->
-    <!-- descriptive text -->
+    <div id="close">
+        <Icon name="tabler:square-x" />
+    </div>
+    <div id="image">
+        <Image src={flowchartImg} alt="Website Design & Build Process Flowchart" />
+    </div>
+    <!-- TODO add descriptive text -->
 </div>
 
 <style>
     #popup-container {
         display: none;
+        background-color: color-mix(in oklab, var(--gray-contrast) 98%, transparent);
         height: 100vh;
         width: 100%;
-        background-color: color-mix(in oklab, var(--gray-contrast) 70%, transparent);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    #close svg {
+        width: 70px;
+        height: auto;
+        float: right;
+        margin-right: 2em;
+        margin-top: 2em;
+    }
+    #image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #image img {
+        height: 100vh;
+        width: auto;
+        margin: 0 auto;
     }
 </style>
 
 <script>
-    // on click of #flowchart show #popup-container
+    const chartBtn:any = document.querySelector('#flowchart');
+    const popup:any = document.querySelector('#popup-container');
+    const close:any = document.querySelector('#close');
+
+    chartBtn.addEventListener('click', () => {
+        popup.style.display = 'block';
+    });
+
+    close.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
 </script>
