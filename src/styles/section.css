@@ -61,7 +61,7 @@
     .section-container {
         padding: 2em;
     }
-    .section-content br {
+    .section.cta br {
         display: none;
     }
 }
