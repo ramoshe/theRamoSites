@@ -91,20 +91,26 @@ const path = new URL(Astro.request.url).pathname;
     width: 0;
   }
   .sidebar {
-    transition: translate var(--animation-timing);
-    translate: 200%;
+    transition: transform var(--animation-timing);
+    transform: translateX(200%);
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
     background-color: var(--foreground);
     color: var(--background);
-    min-width: 50vw;
-    min-height: 100vh !important;
-    position: absolute;
+    width: 70vw;
+    height: 100vh !important;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: 99;
+    overflow: hidden;
+  }
+  @media (min-width: 600px) {
+    .sidebar {
+      width: 50vw;
+    }
   }
   .hamburger-menu:has(input:checked) + .sidebar {
-    translate: 0;
+    transform: translateX(0);
   }
   .nav-menu {
     width: 100%;
