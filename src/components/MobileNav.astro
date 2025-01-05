@@ -27,9 +27,14 @@ const path = new URL(Astro.request.url).pathname;
     --hamburger-gap: 7px;
     --foreground: var(--text-color);
     --background: var(--background-color);
-    --hamburger-margin: 4.15%;
+    --hamburger-margin: 2.1em;
     --animation-timing: 200ms ease-in-out;
     --hamburger-height: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
+  }
+  @media (max-width: 800px) {
+    :root {
+      --hamburger-margin: 1.85em;
+    }
   }
   .hamburger-menu {
     --x-width: calc(var(--hamburger-height) * 1.41421356237);
@@ -39,8 +44,8 @@ const path = new URL(Astro.request.url).pathname;
     width: max-content;
     position: absolute;
     top: var(--hamburger-margin);
-    right: calc(var(--hamburger-margin)*1.5);
-    z-index: 2;
+    right: var(--hamburger-margin);
+    z-index: 999;
     cursor: pointer;
   }
   .hamburger-menu:has(input:checked) {
@@ -92,10 +97,11 @@ const path = new URL(Astro.request.url).pathname;
     background-color: var(--foreground);
     color: var(--background);
     min-width: 50vw;
-    min-height: 100vh;
+    min-height: 100vh !important;
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 99;
   }
   .hamburger-menu:has(input:checked) + .sidebar {
     translate: 0;

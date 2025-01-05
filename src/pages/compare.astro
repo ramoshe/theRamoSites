@@ -115,21 +115,40 @@ import compare from '../data/comparison.json';
     .detail-example {
         margin-bottom: .5em;
     }
-</style>
-
-<style is:inline>
+    #table {
+        max-width: 100%;
+        min-width: 600px;
+        overflow-x: auto;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
         table-layout: fixed;
     }
-    td, th {
-        border: 1px solid var(--gray-mid);
-        padding: .5em;
-    }
     .empty {
         border: none;
         background-color: transparent !important;
+    }
+
+    @media (max-width: 800px) {
+        #detail .section-content {
+            flex-direction: column;
+            gap: 1.5em;
+        }
+        #detail .section-content .section-image {
+            width: 50%;
+        }
+        #detail .section-content .section-text {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+
+<style is:inline>
+    td, th {
+        border: 1px solid var(--gray-mid);
+        padding: .5em;
     }
     .category-title {
         font-size: 1em;

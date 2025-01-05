@@ -30,7 +30,7 @@ const { classname, price, per, color, plus } = Astro.props;
         justify-content: center;
         align-items: center;
         padding: 1.5em;
-        max-width: 350px;
+        max-width: 50%;
         text-align: center;
         flex-basis: 100%;
     }
@@ -52,5 +52,16 @@ const { classname, price, per, color, plus } = Astro.props;
     .plus-icon svg {
         width: 40px;
         height: auto;
+    }
+
+    @media (max-width: 800px) {
+        .card {
+            max-width: 100%;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .plus-icon {
+            margin: 1em auto;
+        }
     }
 </style>

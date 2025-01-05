@@ -62,6 +62,9 @@
         padding: 2em;
     }
     .section.cta br {
-        display: none;
+        content: "";
+    }
+    .section.cta br:after {
+        content: " ";
     }
 }
