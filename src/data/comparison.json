@@ -2,7 +2,7 @@
     {
         "title": "Site Builders",
         "slug": "sb",
-        "image": "src/assets/undraw_building_blocks.svg",
+        "image": "/assets/undraw_building_blocks.svg",
         "description": "Platforms designed for building a website without code. They often use drag-and-drop editors, making them user-friendly for beginners. However, they can have limited flexibility that drives users to premium plans.",
         "examples": "Examples: Squarespace, Shopify, Wix, Google Sites, and more.",
         "factors": {
@@ -25,7 +25,7 @@
     {
         "title": "Freelancers",
         "slug": "fr",
-        "image": "src/assets/undraw_digital_nomad.svg",
+        "image": "/assets/undraw_digital_nomad.svg",
         "description": "Freelancers are independent professionals who can offer tailored website design and development services. They can provide personalized, custom solutions but their availability, expertise, and pricing will vary significantly.",
         "examples": "Examples: can be found on sites like Fiverr and Upwork.",
         "factors": {
@@ -48,7 +48,7 @@
     {
         "title": "Agencies",
         "slug": "ag",
-        "image": "src/assets/undraw_team_page.svg",
+        "image": "/assets/undraw_team_page.svg",
         "description": "Agencies offer comprehensive services with teams of designers, developers, and project managers. They provide full-scale solutions for complex needs, but the tradeoff is higher costs and communication complexities.",
         "examples": "Examples: Professional web development firms, local or online.",
         "factors": {
@@ -71,7 +71,7 @@
     {
         "title": "WordPress",
         "slug": "wp",
-        "image": "src/assets/undraw_advanced_customization.svg",
+        "image": "/assets/undraw_advanced_customization.svg",
         "description": "Open source software that powers almost half of websites worldwide. Known for its wide range of options, themes, and plugins. Also notourious for security breeches and slow page loads because it's server-based.",
         "examples": "Examples: Many companies offer self-hosted or managed hosting options",
         "factors": {
