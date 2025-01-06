@@ -17,7 +17,7 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<!-- <meta name="description" content="Astro description" /> -->
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -34,12 +34,12 @@ const { title } = Astro.props;
 		<link rel="manifest" href="/site.webmanifest">
 
 		<SEO
-			description="RamoSites offers bespoke website design and development with high-quality code, perfect for creatives, entrepreneurs, content creators, live streamers, musicians, artists, and small businesses. Elevate your brand with our user-centric, expertly crafted websites."
+			description="RamoSites offers bespoke website design and development with high-quality code, perfect for creatives, entrepreneurs, content creators, live streamers, musicians, artists, and small businesses. Elevate your business or brand with user-centric, expertly crafted websites."
 			openGraph={{
 				basic: {
-				title: "RamoSites",
-				type: "website",
-				image: "https://ramosites.com/RamoSitesOGimg.png",
+					title: "RamoSites",
+					type: "website",
+					image: "https://ramosites.com/RamoSitesOGimg.png",
 				}
 			}}
 		/>
@@ -53,6 +53,9 @@ const { title } = Astro.props;
 			borderBox={true}
 			scrollBarKeep={true}
 		/>
+
+		<!-- Umami Analytics -->
+		<script defer src="https://cloud.umami.is/script.js" data-website-id="60243932-0c4a-4284-a75e-6562c85ae8f7"></script>
 
 		<title>RamoSites // {title}</title>
 	</head>
