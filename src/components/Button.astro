@@ -19,7 +19,7 @@ const { type, link, icon, text, window, idname, classname } = Astro.props;
 	class={classname ? `btn ${type} ${classname}` : `btn ${type}`}
 	target={ window ? "_blank" : "_self" }
 >
-	{ icon ? <Icon name={icon} /> : null }{text}
+	{icon ? <Icon name={icon} /> : null}{text}
 </a>
 
 <style is:global>
@@ -42,13 +42,14 @@ const { type, link, icon, text, window, idname, classname } = Astro.props;
 		width: auto;
 		margin-right: .5em;
 	}
+
 	.primary {
         background-color: var(--accent);
-        color: var(--black);
+        color: var(--background-color);
     }
 	.primary:hover {
         background-color: var(--accent-contrast);
-		color: var(--black);
+		color: var(--background-color);
     }
 
 	.secondary {
