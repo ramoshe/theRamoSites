@@ -1,0 +1,18 @@
+---
+import '../../styles/form.css';
+---
+<form name="contact" action="/thankyou" method="POST" data-netlify="true" onkeydown="return event.key != 'Enter';">
+    <label for="name" class="half">
+        <span class="required">Name</span>
+        <input type="text" id="name" name="name" required />
+    </label>
+    <label for="email" class="half">
+        <span class="required">Email</span>
+        <input type="email" id="email" name="email" required />
+    </label>
+    <label for="message">
+        <span>Message</span>
+        <textarea rows="3" id="message" name="message" />
+    </label>
+    <button class="btn primary" type="submit">Send Message</button>
+</form>

@@ -1,33 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/pieces/ContactForm.astro';
+import { Image } from 'astro:assets';
+import ContactImage from '../assets/undraw_nature_on_screen.svg';
 ---
 
 <Layout title="Contact">
 	<section id="contact" class="section top">
-        <div class="content-text">
+        <div class="content">
             <h2 class="content-title">Get in <span class="title-highlight">Touch</span></h2>
             <div class="content-instructions">
                 <p>Have questions or just want to say hello? Feel free to use the form here to reach out about anything. If you're not ready to dive into the <a href="/start">Get Started</a> form, that's okay—I'm here to help and would love to hear from you!</p>
             </div>
+            <div class="content-form">
+                <ContactForm />
+            </div>
         </div>
-        <div id="form" class="section content-form">
-            <script is:inline type="text/javascript" src="//mautic.ramoshe.com/form/generate.js?id=1"></script>
+        <div class="image">
+            <Image src={ContactImage} alt="Thank You!" />
         </div>
     </section>
 </Layout>
+
 <style>
     #contact {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 5em 0 4em;
+        align-items: center;
+        margin-top: 4em;
     }
-    .content-text {
-        width: 45%;
+    .content {
+        width: 50%;
     }
     .content-form {
-        width: 45%;
-        margin-top: 4em;
+        margin-top: 2em;
     }
     .content-title {
         font-family: var(--font-display);
@@ -40,36 +47,25 @@ import Layout from '../layouts/Layout.astro';
     .content-instructions {
         margin: 2em 0;
     }
+    .image {
+        width: 40%;
+    }
+    .image img {
+        width: 100%;
+        height: auto;
+    }
 
-    @media (max-width: 800px) {
-        .content-text {
+    @media (max-width: 1000px) {
+        .content {
             width: 100%;
         }
         .content-form {
             width: 90%;
-            margin: 2em auto 0;
+            margin: 0 auto 4em;
         }
-    }
-</style>
-<style is:inline>
-    #form label {
-        display: block;
-        font-weight: bold;
-        font-size: .9em;
-    }
-    #form input, #form textarea {
-        width: 100%;
-        height: 100%;
-        border: 1px solid var(--gray-mid);
-        border-radius: 4px;
-        padding: .5em;
-        margin-bottom: 1.5em;
-    }
-    #form input:focus, #form textarea:focus {
-        outline: 1px solid var(--accent);
-    }
-    #form button {
-        border: none;
-        margin: 1em auto;
+        .image {
+            width: 60%;
+            margin: 0 auto;
+        }
     }
 </style>
