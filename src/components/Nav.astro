@@ -3,7 +3,7 @@ const path = new URL(Astro.request.url).pathname;
 import Button from "./Button.astro";
 ---
 <nav class="nav">
-    <a class="navlink" class:list={path === "/solutions" ? "active" : ""} href="/solutions">Solutions</a>
+    <a class="navlink" class:list={path === "/pricing" ? "active" : ""} href="/pricing">Pricing</a>
     <a class="navlink" class:list={path === "/compare" ? "active" : ""} href="/compare">Compare</a>
     <a class="navlink" class:list={path === "/contact" ? "active" : ""} href="/contact">Contact</a>
     <!-- <a class="navlink" class:list={path === "/blog" ? "active" : ""} href="/pricing">Blog</a> -->

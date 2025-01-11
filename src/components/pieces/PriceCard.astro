@@ -7,8 +7,9 @@ interface Props {
     per: string;
     color: string;
     plus?: boolean;
+    space?: boolean;
 }
-const { classname, price, per, color, plus } = Astro.props;
+const { classname, price, per, color, plus, space } = Astro.props;
 ---
 <div class=`card ${color} ${classname}`>
     <p class="price">${price}</p>
@@ -16,6 +17,7 @@ const { classname, price, per, color, plus } = Astro.props;
     <span class="text"><slot /></span>
 </div>
 {plus ? <div class="plus-icon"><Icon name="tabler:plus" /></div> : null}
+{space ? <div class="plus-icon"></div> : null}
 
 <style>
     .medium { background-color: var(--gray-mid); }
@@ -48,9 +50,10 @@ const { classname, price, per, color, plus } = Astro.props;
     }
     .plus-icon {
         margin: 4em 1em;
+        min-width: 2em;
     }
     .plus-icon svg {
-        width: 40px;
+        width: 2em;
         height: auto;
     }
 
