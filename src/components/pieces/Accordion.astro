@@ -45,12 +45,15 @@ const { items } = Astro.props;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 30px;
+        width: 2em;
         height: auto;
         color: var(--accent-contrast);
     }
     .item-icon .open {
         display: none;
+    }
+    .item-icon .closed {
+        display: block;
     }
     .item-text {
         display: grid;
