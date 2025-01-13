@@ -94,7 +94,9 @@ import Accordion from "../pieces/Accordion.astro";
     }
     .section-content {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
     }
 
     .section-column {
@@ -102,8 +104,16 @@ import Accordion from "../pieces/Accordion.astro";
     }
     .content-accordion {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
+    }
+
+    @media (max-width: 600px) {
+        .section-column {
+            width: 90%;
+            margin: 0 auto;
+        }
     }
 </style>
