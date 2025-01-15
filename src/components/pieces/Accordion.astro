@@ -10,6 +10,7 @@ interface Props {
 }
 const { items } = Astro.props;
 ---
+
 { items.map(({ title, text }) => (
     <accordion-item class="content-item">
         <div class="item-icontitle">
@@ -24,7 +25,7 @@ const { items } = Astro.props;
         </div>
     </accordion-item>
 )) }
-<!-- TODO Apply .closed and .open to the whole accordion-item, create CSS to hide and show icons and text inside based on the outer class, then ajust javascript to just switch class of container -->
+
 <style>
     :root {
         --expansion: .5s ease-out;
@@ -48,6 +49,10 @@ const { items } = Astro.props;
         width: 2em;
         height: auto;
         color: var(--accent-contrast);
+    }
+    .item-icon svg {
+        height: 2em;
+        width: auto;
     }
     .item-icon .open-caret {
         display: none;
