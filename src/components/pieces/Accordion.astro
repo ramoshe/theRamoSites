@@ -14,7 +14,7 @@ const { items } = Astro.props;
     <accordion-item class="content-item">
         <div class="item-icontitle">
             <h4 class="item-title">{title}</h4>
-            <span class="item-icon icon-closed">
+            <span class="item-icon">
                 <Icon class="closed-caret" name="tabler:caret-down" />
                 <Icon class="open-caret" name="tabler:caret-up-filled" />
             </span>
@@ -24,7 +24,7 @@ const { items } = Astro.props;
         </div>
     </accordion-item>
 )) }
-
+<!-- TODO Apply .closed and .open to the whole accordion-item, create CSS to hide and show icons and text inside based on the outer class, then ajust javascript to just switch class of container -->
 <style>
     :root {
         --expansion: .5s ease-out;
@@ -49,16 +49,16 @@ const { items } = Astro.props;
         height: auto;
         color: var(--accent-contrast);
     }
-    .item-icon.icon-closed .open-caret {
+    .item-icon .open-caret {
         display: none;
     }
-    .item-icon.icon-closed .closed-caret {
+    .item-icon .closed-caret {
         display: block;
     }
-    .item-icon.icon-open .open-caret {
+    .open .item-icon .open-caret {
         display: block;
     }
-    .item-icon.icon-open .closed-caret {
+    .open .item-icon .closed-caret {
         display: none;
     }
     .item-text {
@@ -69,7 +69,7 @@ const { items } = Astro.props;
         color: var(--gray);
         font-size: .9em;
     }
-    .item-text.open {
+    .open .item-text {
         grid-template-rows: 1fr;
         opacity: 1;
         margin: 0 1.5em 0 .5em;
@@ -89,33 +89,16 @@ const { items } = Astro.props;
     class AccordionItem extends HTMLElement {
         isClosed: boolean = true;
         connectedCallback() {
-            const allAnswers: NodeListOf<HTMLElement> = document.querySelectorAll('.item-text');
-            const allIcons: NodeListOf<HTMLElement> = document.querySelectorAll('.item-icon');
-            // const allOpen: NodeListOf<HTMLElement> = document.querySelectorAll('.open');
-            // const allClosed: NodeListOf<HTMLElement> = document.querySelectorAll('.closed');
-            const answer: HTMLElement | null = this.querySelector('.item-text');
-            const icon: HTMLElement | null = this.querySelector('.item-icon');
-            // const closedIcon: HTMLElement | null = this.querySelector('.closed-caret');
-            // const openIcon: HTMLElement | null = this.querySelector('.open-caret');
+            const allItems: NodeListOf<HTMLElement> = document.querySelectorAll('.content-item');
+            const item: HTMLElement | null = this;
 
             this.addEventListener('click', () => {
                 if(this.isClosed) {
-                    allAnswers.forEach( text => text.classList.remove("open") );
-                    allIcons.forEach( icon => icon.classList.remove("icon-open") );
-                    allIcons.forEach( icon => icon.classList.add("icon-closed") );
-                    // allOpen.forEach( icon => icon.style.display = "none" );
-                    // allClosed.forEach( icon => icon.style.display = "block" );
-                    answer!.classList.add("open");
-                    icon!.classList.add("icon-open");
-                    // closedIcon!.style.display = "none";
-                    // openIcon!.style.display = "block";
+                    allItems.forEach( item => item.classList.remove("open") );
+                    item!.classList.add("open");
                     this.isClosed = false;
                 } else {
-                    answer!.classList.remove("open");
-                    icon!.classList.remove("icon-open");
-                    icon!.classList.add("icon-closed");
-                    // closedIcon!.style.display = "block";
-                    // openIcon!.style.display = "none";
+                    item!.classList.remove("open");
                     this.isClosed = true;
                 }
             });
