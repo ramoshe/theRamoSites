@@ -1,7 +1,7 @@
 ---
 import '../../styles/form.css';
 ---
-<form name="contact" action="/thankyou" method="POST" data-netlify="true" onkeydown="return event.key != 'Enter';">
+<form name="contact" action="/" method="POST" data-netlify="true" onkeydown="return event.key != 'Enter';">
     <label for="name" class="half">
         <span class="required">Name</span>
         <input type="text" id="name" name="name" required />
@@ -16,3 +16,12 @@ import '../../styles/form.css';
     </label>
     <button class="btn primary" type="submit">Send Message</button>
 </form>
+
+<script>
+    const handleSubmit = () => {
+        alert("Thank you for reaching out! theRamoShe will be in touch soon!")
+    };
+
+    document.querySelector("form")?.addEventListener("submit", handleSubmit);
+
+</script>
